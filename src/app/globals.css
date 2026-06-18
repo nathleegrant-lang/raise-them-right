@@ -1,0 +1,197 @@
+:root {
+  --navy: #071b3a;
+  --navy-2: #102b55;
+  --gold: #c99a2e;
+  --gold-light: #f4dfaa;
+  --cream: #fbf7ef;
+  --white: #ffffff;
+  --ink: #172033;
+  --muted: #5d687c;
+  --line: #e9dfcf;
+  --shadow: 0 20px 50px rgba(7, 27, 58, 0.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+}
+a { color: inherit; text-decoration: none; }
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 7vw;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; color: var(--navy); }
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.navLinks { display: flex; gap: 24px; color: var(--navy); font-size: 14px; font-weight: 700; }
+.navLinks a:hover { color: var(--gold); }
+
+.sectionPad { padding: 88px 7vw; }
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(201,154,46,.16), transparent 30%),
+    linear-gradient(135deg, var(--cream), var(--white));
+}
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  color: var(--navy);
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 0.96;
+  letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+h2 {
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+}
+h3 { color: var(--navy); font-size: 23px; margin-bottom: 12px; }
+p { color: var(--muted); line-height: 1.75; font-size: 17px; }
+.heroLead { max-width: 680px; font-size: 20px; color: #39445a; }
+.buttonRow { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.primaryButton, .secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 15px 22px;
+  font-weight: 800;
+}
+.primaryButton { background: var(--navy); color: var(--white); box-shadow: var(--shadow); }
+.secondaryButton { border: 1px solid var(--navy); color: var(--navy); }
+
+.heroCard {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  padding: 38px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.heroCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 9px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+}
+.heroCardTop { display: flex; align-items: center; gap: 14px; color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+.heroCard h2 { font-size: 38px; }
+.pillGrid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.pillGrid span { background: var(--cream); color: var(--navy); border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; font-weight: 800; font-size: 14px; }
+
+.lightSection { background: var(--cream); }
+.sectionIntro { max-width: 850px; margin: 0 auto 42px; text-align: center; }
+.sectionIntro.narrow { max-width: 650px; }
+.twoColumn { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.storyBox, .scriptureBox, .beliefCard, .flyerCard, .trainingItem {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: 0 12px 28px rgba(7, 27, 58, 0.06);
+}
+.scriptureBox { border-top: 8px solid var(--gold); }
+.scriptureBox svg { color: var(--gold); margin-bottom: 18px; }
+
+.beliefGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.beliefCard svg { color: var(--gold); flex: 0 0 auto; }
+.beliefCard { display: flex; gap: 14px; align-items: flex-start; }
+.beliefCard p { font-size: 15px; margin: 0; }
+
+.navySection { background: var(--navy); color: var(--white); }
+.navySection h2, .navySection p { color: var(--white); }
+.goldText { color: var(--gold-light); }
+.roleGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.roleCard {
+  border: 1px solid rgba(244,223,170,.28);
+  background: rgba(255,255,255,.06);
+  border-radius: 22px;
+  padding: 22px;
+  color: var(--white);
+  font-weight: 900;
+  text-align: center;
+}
+
+.flyerGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.flyerCard { min-height: 220px; border-left: 8px solid var(--gold); }
+.trainingGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.trainingItem { display: flex; gap: 16px; align-items: center; }
+.trainingItem span { color: var(--gold); font-weight: 900; font-size: 22px; }
+.trainingItem p { margin: 0; color: var(--navy); font-weight: 800; }
+
+.joinSection { background: linear-gradient(135deg, var(--navy), var(--navy-2)); }
+.joinCard {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--white);
+  border-radius: 34px;
+  padding: 38px;
+  box-shadow: var(--shadow);
+}
+.contactCard {
+  display: grid;
+  gap: 12px;
+  background: var(--cream);
+  border-radius: 24px;
+  padding: 22px;
+}
+.contactCard a { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 800; }
+.contactCard svg { color: var(--gold); }
+.footer { text-align: center; padding: 36px 7vw; background: var(--navy); border-top: 1px solid rgba(255,255,255,.12); }
+.footer p { margin: 4px 0; color: var(--white); font-size: 15px; }
+
+@media (max-width: 980px) {
+  .hero, .twoColumn, .joinCard { grid-template-columns: 1fr; }
+  .beliefGrid, .roleGrid, .flyerGrid, .trainingGrid { grid-template-columns: repeat(2, 1fr); }
+  .navLinks { display: none; }
+  h1 { letter-spacing: -2px; }
+}
+@media (max-width: 620px) {
+  .sectionPad { padding: 64px 5vw; }
+  .beliefGrid, .roleGrid, .flyerGrid, .trainingGrid { grid-template-columns: 1fr; }
+  .heroCard, .joinCard { padding: 26px; border-radius: 24px; }
+  .siteHeader { padding: 14px 5vw; }
+}
