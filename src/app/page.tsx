@@ -203,7 +203,7 @@ export default function HomePage() {
           </div>
           <div className="contactCard">
             <a href="mailto:nathlee_grant@yahoo.com"><Mail size={20} /> nathlee_grant@yahoo.com</a>
-            <a href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer"><Instagram size={20} /> @nathlee.grant</a>
+            <a href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer"><Camera size={20} /> @nathlee.grant</a>
             <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><Facebook size={20} /> Nathlee Grant</a>
           </div>
         </div>
