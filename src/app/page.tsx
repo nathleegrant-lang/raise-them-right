@@ -8,7 +8,7 @@ import {
   Users,
   GraduationCap,
   Mail,
-  Instagram,
+  Camera,
   Facebook,
   ArrowRight,
   CheckCircle2,
