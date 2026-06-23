@@ -75,20 +75,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="movement" className="section founder-section">
-        <div className="founder-image-card">
-          <Image
-            src="/images/nathlee-r-grant-founder.png"
-            alt="Nathlee R. Grant, founder of #RaiseThemRight."
-            width={520}
-            height={760}
-            className="founder-image"
-          />
-        </div>
-        <div className="section-copy founder-copy">
-          <p className="eyebrow">Founder&apos;s Message</p>
-          <h2>A message from Nathlee R. Grant</h2>
-          <BrushDivider />
+     <section id="movement" className="section founder-section founder-stacked">
+  <div className="founder-image-card">
+    <Image
+      src="/images/nathlee-r-grant-founder.png"
+      alt="Nathlee R. Grant, founder of #RaiseThemRight."
+      width={520}
+      height={760}
+      className="founder-image"
+    />
+  </div>
+
+  <div className="section-copy founder-copy">
+    <p className="eyebrow">Founder&apos;s Message</p>
+    <h2>A message from Nathlee R. Grant</h2>
+    <BrushDivider />
           <p>
             Throughout the month of May, we celebrated our children. We applauded their achievements, recognized their potential, and reminded ourselves that they are the future of our nation.
           </p>
