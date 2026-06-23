@@ -277,7 +277,7 @@ h1 {
   align-self: start;
   justify-self: center;
   margin-top: 0;
-  min-height: 420px;
+  min-height: 560px;
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -295,7 +295,7 @@ h1 {
 
 .founder-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 430px;
   height: auto;
   object-fit: contain;
   display: block;
