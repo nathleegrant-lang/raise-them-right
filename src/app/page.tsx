@@ -108,19 +108,7 @@ export default function Home() {
 
   <p> Every day they are watching, listening, and learning from the adults around them. </p>
 
-  <p> The bus driver. </p>
-
-  <p> The taxi operator. </p>
-
-  <p> The teacher. </p>
-
-  <p> The neighbour. </p>
-
-  <p> The shopkeeper. </p>
-
-  <p> The coach. </p>
-
-  <p> The church member. </p>
+  <p> The bus driver. The taxi operator. The teacher. The neighbour. The shopkeeper. The coach. The church member. </p>
 
   <p> Each of us leaves an imprint. </p>
 
