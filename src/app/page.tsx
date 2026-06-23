@@ -1,215 +1,226 @@
-import {
-  BookOpen,
-  Church,
-  HeartHandshake,
-  Home,
-  Megaphone,
-  ShieldCheck,
-  Users,
-  GraduationCap,
-  Mail,
-  Camera,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
+import Image from "next/image";
+
+const roles = [
+  "Parents",
+  "Teachers",
+  "Coaches",
+  "Neighbours",
+  "Faith communities",
+  "Business owners",
+  "Bus and taxi operators",
+  "Community mentors",
+];
 
 const beliefs = [
   "Parents carry the primary responsibility for raising children.",
-  "Parents should not have to raise children alone.",
-  "Every adult influences children, whether intentionally or not.",
-  "Faith, values, discipline, love, and community all help shape the next generation.",
-  "Support must never replace parental responsibility; it should strengthen it.",
+  "Children are shaped by more than what happens inside their homes.",
+  "Every adult influences children through words, actions, attitudes, and example.",
+  "Faith, family, community, and responsibility help form strong character.",
+  "Support should strengthen parents, not replace them.",
 ];
 
-const communityRoles = [
-  "Bus and taxi operators",
-  "Shopkeepers and business owners",
-  "Teachers and school leaders",
-  "Churches and faith communities",
-  "Coaches, mentors, and neighbours",
-  "Parents, grandparents, and guardians",
+const pillars = [
+  { title: "Strong Homes", text: "The first place children learn love, discipline, faith, and character." },
+  { title: "Strong Communities", text: "The village around the child must become safe, caring, and intentional." },
+  { title: "Strong Nation", text: "When children are raised well, the future of the nation is strengthened." },
 ];
 
-const futureTraining = [
-  "Parent Academy courses",
-  "Community ambassador training",
-  "Youth mentorship resources",
-  "Downloadable worksheets and guides",
-  "Quizzes and reflection activities",
-  "Certificates and participant tracking",
-];
+function BrushDivider() {
+  return <span className="brush-divider" aria-hidden="true" />;
+}
 
-const flyers = [
-  {
-    title: "#GetBackTheCommunity",
-    text: "Children are influenced by more than their parents. Every word, action, and example matters.",
-  },
-  {
-    title: "You May Think It Doesn't Matter",
-    text: "The music you play, the words you speak, and the example you set are teaching children something.",
-  },
-  {
-    title: "Support, Not Replacement",
-    text: "Parents need support, but their role and responsibility must remain clear.",
-  },
-];
-
-export default function HomePage() {
+export default function Home() {
   return (
     <main>
-      <header className="siteHeader">
-        <a href="#home" className="brand" aria-label="#RaiseThemRight Home">
-          <span className="brandMark">RT</span>
-          <span>#RaiseThemRight</span>
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="#RaiseThemRight home">
+          <Image
+            src="/images/raisethemright-logo-primary.png"
+            alt="#RaiseThemRight - Strong Homes. Strong Children. Strong Nation."
+            width={900}
+            height={360}
+            priority
+          />
         </a>
-        <nav className="navLinks" aria-label="Main navigation">
+        <nav className="nav-links" aria-label="Main navigation">
           <a href="#movement">Movement</a>
           <a href="#community">Community</a>
-          <a href="#training">Training</a>
+          <a href="#resources">Resources</a>
           <a href="#join">Join</a>
         </nav>
       </header>
 
-      <section id="home" className="hero sectionPad">
-        <div className="heroText">
-          <p className="eyebrow">A Public Awareness Initiative by Nathlee R. Grant</p>
-          <h1>Strong Homes. Strong Children. Strong Nation.</h1>
-          <p className="heroLead">
-            #RaiseThemRight calls families, communities, schools, churches, and everyday citizens to recognize their influence in shaping the next generation.
-          </p>
-          <div className="buttonRow">
-            <a className="primaryButton" href="#join">
-              Join the Movement <ArrowRight size={18} />
-            </a>
-            <a className="secondaryButton" href="#movement">Learn More</a>
-          </div>
-        </div>
-        <div className="heroCard" aria-label="Campaign message card">
-          <div className="heroCardTop">
-            <Megaphone size={34} />
-            <span>Coming Soon</span>
-          </div>
-          <h2>Over the coming weeks...</h2>
-          <p>
-            We will explore the role that homes, families, communities, faith, and personal responsibility play in shaping children.
-          </p>
-          <div className="pillGrid">
-            <span>Homes</span><span>Families</span><span>Communities</span><span>Faith</span><span>Responsibility</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="movement" className="sectionPad lightSection">
-        <div className="sectionIntro">
-          <p className="eyebrow">The Movement</p>
-          <h2>The importance of community</h2>
-          <p>
-            Children are shaped by far more than what happens inside their homes. They are always watching, listening, and learning from the world around them.
-          </p>
-        </div>
-        <div className="twoColumn">
-          <div className="storyBox">
-            <h3>Why this matters</h3>
+      <section id="top" className="hero-section">
+        <div className="hero-image-wrap">
+          <Image
+            src="/images/raise-them-right-hero.jpg"
+            alt="A warm community scene with children, a parent, a shopkeeper, and a transport operator interacting positively."
+            fill
+            priority
+            className="hero-image"
+          />
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <p className="eyebrow">A Public Awareness Initiative by Nathlee R. Grant</p>
+            <h1>It takes a community to raise a child.</h1>
             <p>
-              Parents bear the primary responsibility for raising children, but they were never meant to carry the burden alone. Healthy communities help children grow, thrive, and become responsible citizens.
+              Children are always watching, always listening, and always learning.
+              #RaiseThemRight is a call for all of us to play our part well.
             </p>
-            <p>
-              The question is not whether we are influencing children. The question is what we are teaching them.
-            </p>
-          </div>
-          <div className="scriptureBox">
-            <BookOpen size={32} />
-            <h3>A generation must be taught</h3>
-            <p>
-              The Bible reminds us that a generation arose that did not know God. What children know is the responsibility of the present generation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="sectionPad">
-        <div className="sectionIntro narrow">
-          <p className="eyebrow">What We Believe</p>
-          <h2>Support is not replacement</h2>
-        </div>
-        <div className="beliefGrid">
-          {beliefs.map((belief) => (
-            <div className="beliefCard" key={belief}>
-              <CheckCircle2 size={22} />
-              <p>{belief}</p>
+            <div className="hero-actions">
+              <a href="#join" className="button primary">Join the Movement</a>
+              <a href="#movement" className="button secondary">Read the Message</a>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      <section id="community" className="sectionPad navySection">
-        <div className="sectionIntro">
-          <p className="eyebrow goldText">#GetBackTheCommunity</p>
-          <h2>Each of us leaves an imprint</h2>
+      <section id="movement" className="section founder-section">
+        <div className="founder-image-card">
+          <Image
+            src="/images/nathlee-r-grant-founder.png"
+            alt="Nathlee R. Grant, founder of #RaiseThemRight."
+            width={520}
+            height={760}
+            className="founder-image"
+          />
+        </div>
+        <div className="section-copy founder-copy">
+          <p className="eyebrow">Founder&apos;s Message</p>
+          <h2>A message from Nathlee R. Grant</h2>
+          <BrushDivider />
           <p>
-            Sometimes people believe their actions are insignificant because parents should be doing their job. But every adult who interacts with children helps shape what they see as normal, acceptable, and worth repeating.
+            As I began writing the messages that would become #RaiseThemRight, I found myself reflecting on something many of us overlook: children are influenced by more than their parents.
+          </p>
+          <p>
+            Every day, they are watching, listening, and learning from the adults around them. The bus driver. The teacher. The neighbour. The shopkeeper. The coach. The church member.
+          </p>
+          <p>
+            Parents carry the primary responsibility for raising children, but communities also leave an imprint. #RaiseThemRight is an invitation to all of us to strengthen homes, support families, and invest in the next generation.
+          </p>
+          <p className="signature">— Nathlee R. Grant</p>
+        </div>
+      </section>
+
+      <section className="quote-band">
+        <div>
+          <p>The question is not whether we influence children.</p>
+          <h2>The question is what are we teaching them?</h2>
+        </div>
+      </section>
+
+      <section id="community" className="section community-section">
+        <div className="image-panel wide">
+          <Image
+            src="/images/get-back-the-community.jpg"
+            alt="A global montage of adults from different communities positively interacting with children."
+            width={1600}
+            height={1000}
+          />
+        </div>
+        <div className="section-copy">
+          <p className="eyebrow">Get Back The Community</p>
+          <h2>Every adult leaves an imprint.</h2>
+          <BrushDivider />
+          <p>
+            Children interact with many people in the course of their day. From the ride to school, to the conversations they hear, to the examples they see, our words, actions, and attitudes help shape the children around us.
+          </p>
+          <div className="role-grid">
+            {roles.map((role) => <span key={role}>{role}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section support-section">
+        <div className="section-copy">
+          <p className="eyebrow">Parents Need Support. Not Replacement.</p>
+          <h2>No parent should have to feel alone.</h2>
+          <BrushDivider />
+          <p>
+            Parents carry the primary responsibility for raising children. Support should never confuse or replace that responsibility. Instead, communities should come alongside parents with encouragement, guidance, safe spaces, and positive examples.
+          </p>
+          <p>
+            The goal is not to take over the role of parents. The goal is to strengthen the village around the child.
           </p>
         </div>
-        <div className="roleGrid">
-          {communityRoles.map((role) => (
-            <div className="roleCard" key={role}>{role}</div>
-          ))}
+        <div className="image-panel">
+          <Image
+            src="/images/parents-need-support.jpg"
+            alt="A mother helping her son and a father helping his daughter with learning at home."
+            width={1600}
+            height={1000}
+          />
         </div>
       </section>
 
-      <section className="sectionPad">
-        <div className="sectionIntro">
-          <p className="eyebrow">Resources</p>
-          <h2>Flyers and campaign messages</h2>
-          <p>Use these as starting points for social media posts, community talks, school discussions, and church engagement.</p>
+      <section className="belief-section">
+        <div className="belief-inner">
+          <p className="eyebrow light">What We Believe</p>
+          <h2>Strong homes are strengthened by strong communities.</h2>
+          <div className="belief-list">
+            {beliefs.map((item) => <div key={item} className="belief-item">{item}</div>)}
+          </div>
         </div>
-        <div className="flyerGrid">
-          {flyers.map((flyer) => (
-            <article className="flyerCard" key={flyer.title}>
-              <h3>{flyer.title}</h3>
-              <p>{flyer.text}</p>
+      </section>
+
+      <section className="section faith-section">
+        <div className="image-panel">
+          <Image
+            src="/images/faith-and-family.jpg"
+            alt="A family gathered in prayer around an open Bible in a warm home setting."
+            width={1600}
+            height={1000}
+          />
+        </div>
+        <div className="section-copy">
+          <p className="eyebrow">Faith and Family</p>
+          <h2>Faith helps shape what children know, value, and become.</h2>
+          <BrushDivider />
+          <p>
+            The Bible tells us that a generation arose that did not know God because the generation before them did not tell them about Him. What children know is the responsibility of the present generation.
+          </p>
+          <p>
+            #RaiseThemRight encourages homes and communities to pass on faith, character, wisdom, and responsibility with love and consistency.
+          </p>
+        </div>
+      </section>
+
+      <section id="resources" className="pillars-section">
+        <p className="eyebrow">Movement Pillars</p>
+        <h2>From the home to the nation.</h2>
+        <div className="pillars-grid">
+          {pillars.map((pillar) => (
+            <article className="pillar-card" key={pillar.title}>
+              <h3>{pillar.title}</h3>
+              <BrushDivider />
+              <p>{pillar.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="training" className="sectionPad lightSection">
-        <div className="sectionIntro">
-          <p className="eyebrow">Coming Next</p>
-          <h2>Built to expand into training</h2>
+      <section id="join" className="join-section">
+        <div className="join-card">
+          <p className="eyebrow">Join The Movement</p>
+          <h2>Let us play our part well.</h2>
           <p>
-            This first website can grow into a training hub for parents, community ambassadors, schools, churches, and volunteers.
+            Follow the journey, share the message, encourage a parent, mentor a child, and help build the kind of community our children deserve.
           </p>
-        </div>
-        <div className="trainingGrid">
-          {futureTraining.map((item, index) => (
-            <div className="trainingItem" key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="join" className="sectionPad joinSection">
-        <div className="joinCard">
-          <div>
-            <p className="eyebrow">Join the Movement</p>
-            <h2>Let us play our part well.</h2>
-            <p>
-              Follow, share the messages, encourage a parent, mentor a child, support a school, serve in your community, and help raise them right.
-            </p>
-          </div>
-          <div className="contactCard">
-            <a href="mailto:nathlee_grant@yahoo.com"><Mail size={20} /> nathlee_grant@yahoo.com</a>
-            <a href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer"><Camera size={20} /> @nathlee.grant</a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><Users size={20} /> Nathlee Grant</a>
+          <div className="join-actions">
+            <a className="button primary" href="mailto:nathlee_grant@yahoo.com">Contact Nathlee</a>
+            <a className="button secondary" href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer">Instagram</a>
           </div>
         </div>
       </section>
 
       <footer className="footer">
-        <p><strong>#RaiseThemRight</strong> — A Public Awareness Initiative by Nathlee R. Grant</p>
+        <Image
+          src="/images/raisethemright-logo-primary.png"
+          alt="#RaiseThemRight logo"
+          width={520}
+          height={220}
+        />
+        <p>A Public Awareness Initiative by Nathlee R. Grant</p>
         <p>Strong Homes. Strong Children. Strong Nation.</p>
       </footer>
     </main>
