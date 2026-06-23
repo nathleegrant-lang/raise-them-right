@@ -90,14 +90,53 @@ export default function Home() {
           <h2>A message from Nathlee R. Grant</h2>
           <BrushDivider />
           <p>
-            As I began writing the messages that would become #RaiseThemRight, I found myself reflecting on something many of us overlook: children are influenced by more than their parents.
+            Throughout the month of May, we celebrated our children. We applauded their achievements, recognized their potential, and reminded ourselves that they are the future of our nation.
           </p>
           <p>
-            Every day, they are watching, listening, and learning from the adults around them. The bus driver. The teacher. The neighbour. The shopkeeper. The coach. The church member.
+            But as Child Month comes to a close, one truth remains:
           </p>
           <p>
-            Parents carry the primary responsibility for raising children, but communities also leave an imprint. #RaiseThemRight is an invitation to all of us to strengthen homes, support families, and invest in the next generation.
+           Children do not raise themselves.
           </p>
+           <p> 
+             #RaiseThemRight is a call to parents, guardians, families, communities, and every adult who influences a child.
+
+Parents carry the primary responsibility for raising their children. Long before society speaks to a child, the home teaches lessons about love, discipline, respect, responsibility, identity, and faith. Strong homes remain the foundation upon which strong children are built.
+
+Yet as I began writing the messages that would become #RaiseThemRight, I found myself reflecting on something many of us overlook: children are influenced by more than their parents.
+
+Every day they are watching, listening, and learning from the adults around them.
+
+The bus driver.
+
+The taxi operator.
+
+The teacher.
+
+The neighbour.
+
+The shopkeeper.
+
+The coach.
+
+The church member.
+
+Each of us leaves an imprint.
+
+Sometimes we blame society for influencing our children. The reality is that society is not some distant force. Society is us. It is the collective example set by the adults children encounter every day.
+
+When homes are strong, harmful influences lose much of their power. When communities support parents, children are surrounded by consistent messages that reinforce character, responsibility, and hope.
+
+#RaiseThemRight is therefore a call to reclaim parental responsibility while rebuilding the communities that help children thrive.
+
+No parent should have to raise a child alone.
+
+No community should ignore its influence on the next generation.
+
+What children know, value, and become is the responsibility of the present generation.
+
+Let us play our part well.
+           </p>  
           <p className="signature">— Nathlee R. Grant</p>
         </div>
       </section>
