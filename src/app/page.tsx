@@ -227,6 +227,60 @@ export default function Home() {
         </div>
       </section>
 
+    <section className="action-section">
+      <p className="eyebrow">How Would You Like To Participate?</p>
+    
+      <h2>Choose Your Next Step</h2>
+    
+      <div className="action-grid">
+    
+        <div className="action-card">
+          <h3>Take the Pledge</h3>
+          <p>
+            Commit to supporting parents, encouraging children,
+            and helping raise the next generation well.
+          </p>
+          <a href="#" className="button primary">
+            Take the Pledge
+          </a>
+        </div>
+    
+        <div className="action-card">
+          <h3>Join the Movement</h3>
+          <p>
+            Become a volunteer, mentor, advocate, prayer partner,
+            or community champion.
+          </p>
+          <a href="#" className="button primary">
+            Join the Movement
+          </a>
+        </div>
+    
+        <div className="action-card">
+          <h3>Access Parenting Resources</h3>
+          <p>
+            Discover practical tools, articles, guides,
+            and encouragement for parents and caregivers.
+          </p>
+          <a href="#" className="button primary">
+            Access Resources
+          </a>
+        </div>
+    
+        <div className="action-card">
+          <h3>Find Support</h3>
+          <p>
+            Request prayer, mentoring, parenting guidance,
+            or connect with trusted support services.
+          </p>
+          <a href="#" className="button primary">
+            Find Support
+          </a>
+        </div>
+    
+      </div>
+    </section>
+      
       <section id="join" className="join-section">
         <div className="join-card">
           <p className="eyebrow">Join The Movement</p>
