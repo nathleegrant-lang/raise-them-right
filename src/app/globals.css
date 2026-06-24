@@ -765,3 +765,93 @@ h1 {
 .pledge-nav a:hover {
   color: var(--gold);
 }
+/* JOIN MOVEMENT PAGE */
+
+.join-page {
+  background: var(--soft-cream);
+  min-height: 100vh;
+}
+
+.join-hero {
+  padding: 110px 6vw 70px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gold), #fff1bd);
+  color: var(--navy);
+}
+
+.join-hero h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin-bottom: 20px;
+}
+
+.join-hero p:not(.eyebrow) {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.join-movement-card {
+  width: min(1050px, 90vw);
+  margin: -40px auto 100px;
+  background: white;
+  border-radius: 36px;
+  padding: clamp(34px, 6vw, 70px);
+  box-shadow: var(--shadow);
+}
+
+.join-movement-card h2 {
+  color: var(--navy);
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+}
+
+.serve-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 44px;
+}
+
+.serve-card {
+  border: 1px solid rgba(11, 29, 58, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  background: var(--soft-cream);
+}
+
+.serve-card h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.serve-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.movement-form {
+  display: grid;
+  gap: 16px;
+}
+
+.movement-form input,
+.movement-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(11, 29, 58, 0.18);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.movement-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+@media (max-width: 900px) {
+  .serve-grid {
+    grid-template-columns: 1fr;
+  }
+}
