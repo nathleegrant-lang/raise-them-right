@@ -240,7 +240,7 @@ export default function Home() {
             Commit to supporting parents, encouraging children,
             and helping raise the next generation well.
           </p>
-          <a href="#" className="button primary">
+          <a href="/pledge" className="button primary">
             Take the Pledge
           </a>
         </div>
