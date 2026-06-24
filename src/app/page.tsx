@@ -45,8 +45,8 @@ export default function Home() {
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#movement">Movement</a>
           <a href="#community">Community</a>
-          <a href="#resources">Resources</a>
-          <a href="#join">Join</a>
+          <a href="/resources">Resources</a>
+          <a href="/join">Join</a>
         </nav>
       </header>
 
@@ -110,7 +110,7 @@ export default function Home() {
             Discover practical tools, articles, guides,
             and encouragement for parents and caregivers.
           </p>
-          <a href="#" className="button primary">
+          <a href="/resources" className="button primary">
             Access Resources
           </a>
         </div>
