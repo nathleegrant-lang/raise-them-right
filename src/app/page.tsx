@@ -68,7 +68,7 @@ export default function Home() {
               #RaiseThemRight is a call for all of us to play our part well.
             </p>
             <div className="hero-actions">
-              <a href="#join" className="button primary">Join the Movement</a>
+              <a href="/join" className="button primary">Join the Movement</a>
               <a href="#movement" className="button secondary">Read the Message</a>
             </div>
           </div>
