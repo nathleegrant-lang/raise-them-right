@@ -742,3 +742,19 @@ h1 {
   border: 1px solid rgba(11, 29, 58, 0.18);
   font-size: 1rem;
 }
+.pledge-nav {
+  position: absolute;
+  top: 24px;
+  left: 6vw;
+  right: 6vw;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  color: white;
+  font-weight: 800;
+}
+
+.pledge-nav a:hover {
+  color: var(--gold);
+}
