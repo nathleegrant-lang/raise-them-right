@@ -208,7 +208,7 @@ h1 {
 /* GENERAL SECTIONS */
 
 .section {
-  width: min(1180px, 88vw);
+  width: min(1380px, 92vw);
   margin: 0 auto;
   padding: 90px 0;
   display: grid;
@@ -269,7 +269,7 @@ h1 {
 
 .founder-section {
   display: grid;
-  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(300px, 0.6fr) minmax(0, 1.4fr);
   gap: clamp(36px, 6vw, 86px);
   align-items: start;
 }
