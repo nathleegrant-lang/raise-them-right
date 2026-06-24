@@ -1,6 +1,12 @@
 export default function PledgePage() {
   return (
     <main className="pledge-page">
+      <nav className="pledge-nav">
+  <a href="/">Home</a>
+  <a href="/#community">Community</a>
+  <a href="/#resources">Resources</a>
+  <a href="/#join">Join</a>
+</nav>
       <section className="pledge-hero">
         <p className="eyebrow">#RaiseThemRight</p>
         <h1>The Pledge</h1>
