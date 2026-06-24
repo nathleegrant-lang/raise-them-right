@@ -121,7 +121,7 @@ export default function Home() {
             Request prayer, mentoring, parenting guidance,
             or connect with trusted support services.
           </p>
-          <a href="#" className="button primary">
+          <a href="/support" className="button primary">
             Find Support
           </a>
         </div>
