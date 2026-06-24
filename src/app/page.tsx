@@ -304,6 +304,15 @@ export default function Home() {
         />
         <p>A Public Awareness Initiative by Nathlee R. Grant</p>
         <p>Strong Homes. Strong Children. Strong Nation.</p>
+
+        <div className="footer-links">
+  <a href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer">
+    Instagram
+  </a>
+  <a href="mailto:nathlee_grant@yahoo.com">
+    Email
+  </a>
+</div>
       </footer>
     </main>
   );
