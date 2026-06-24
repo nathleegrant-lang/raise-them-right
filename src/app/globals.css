@@ -102,7 +102,7 @@ img {
 
 .hero-image-wrap {
   position: relative;
-  min-height: 58vh;
+  min-height: 28vh;
   overflow: hidden;
   display: flex;
   align-items: center;
