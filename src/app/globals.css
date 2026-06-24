@@ -41,11 +41,12 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px 6vw;
+  padding: 10px 6vw;
   background: rgba(255, 253, 247, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -53,13 +54,14 @@ img {
 
 .brand {
   display: block;
-  width: min(390px, 55vw);
+  width: min(320px, 42vw);
 }
 
 .brand img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 82px;
+  object-fit: contain;
 }
 
 .nav-links {
