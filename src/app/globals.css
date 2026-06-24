@@ -547,6 +547,7 @@ h1 {
 }
 
 .join-card {
+  margin: 0 auto;
   width: min(760px, 100%);
   background: rgba(255, 253, 247, 0.94);
   border-radius: 36px;
