@@ -289,8 +289,8 @@ export default function Home() {
             Follow the journey, share the message, encourage a parent, mentor a child, and help build the kind of community our children deserve.
           </p>
           <div className="join-actions">
-            <a className="button primary" href="mailto:nathlee_grant@yahoo.com">Contact Nathlee</a>
-            <a className="button secondary" href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer">Instagram</a>
+           <a className="button primary" href="/pledge">Take the Pledge</a>
+            <a className="button secondary" href="/join">Join the Movement</a>
           </div>
         </div>
       </section>
