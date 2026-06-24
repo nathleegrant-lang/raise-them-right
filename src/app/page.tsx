@@ -92,25 +92,22 @@ export default function Home() {
     <BrushDivider />
           <p>
             Throughout the month of May, we celebrated our children. We applauded their achievements, recognized their potential, and reminded ourselves that they are the future of our nation.
-          </p>
-          <p>
-            But as Child Month comes to a close, one truth remains:
-          </p>
-          <p>
+           But as Child Month comes to a close, one truth remains:
+                  <b>
            Children do not raise themselves.
-          </p>
+          </b></p>
            <p> 
              #RaiseThemRight is a call to parents, guardians, families, communities, and every adult who influences a child.</p>
 
-  <p> Parents carry the primary responsibility for raising their children. Long before society speaks to a child, the home teaches lessons about love, discipline, respect, responsibility, identity, and faith. Strong homes remain the foundation upon which strong children are built.
- </p>
-  <p> Yet as I began writing the messages that would become #RaiseThemRight, I found myself reflecting on something many of us overlook: children are influenced by more than their parents. </p>
+  <p> Parents carry the primary responsibility for raising their children. Long before society speaks to a child, the home teaches lessons about love, 
+    discipline, respect, responsibility, identity, and faith. Strong homes remain the foundation upon which strong children are built.
 
-  <p> Every day they are watching, listening, and learning from the adults around them. </p>
+  Yet as I began writing the messages that would become #RaiseThemRight, I found myself reflecting on something many of us overlook: 
+    children are influenced by more than their parents. Every day they are watching, listening, and learning from the adults around them.
 
-  <p> The bus driver. The taxi operator. The teacher. The neighbour. The shopkeeper. The coach. The church member. </p>
+ The bus driver. The taxi operator. The teacher. The neighbour. The shopkeeper. The coach. The church member.
 
-  <p> Each of us leaves an imprint. </p>
+  <b> Each of us leaves an imprint. </b>b></p>
 
   <p> Sometimes we blame society for influencing our children. The reality is that society is not some distant force. Society is us. It is the collective example set by the adults children encounter every day. </p>
 
