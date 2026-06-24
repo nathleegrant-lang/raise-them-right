@@ -161,7 +161,7 @@ export default function Home() {
 
  The bus driver. The taxi operator. The teacher. The neighbour. The shopkeeper. The coach. The church member.
 
-  <b> Each of us leaves an imprint. </b>b></p>
+  <b> Each of us leaves an imprint. </b></p>
 
   <p> Sometimes we blame society for influencing our children. The reality is that society is not some distant force. Society is us. It is the collective example set by the adults children encounter every day. </p>
 
