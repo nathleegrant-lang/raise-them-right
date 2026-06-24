@@ -99,7 +99,7 @@ export default function Home() {
             Become a volunteer, mentor, advocate, prayer partner,
             or community champion.
           </p>
-          <a href="#" className="button primary">
+          <a href="/join" className="button primary">
             Join the Movement
           </a>
         </div>
