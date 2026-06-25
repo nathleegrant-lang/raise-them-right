@@ -1030,3 +1030,9 @@ h1 {
   flex-wrap: wrap;
   margin-top: 34px;
 }
+
+.form-error {
+  color: #b42318;
+  font-weight: 800;
+  margin: 0;
+}
