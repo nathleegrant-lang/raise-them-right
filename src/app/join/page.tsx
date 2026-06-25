@@ -41,7 +41,7 @@ export default function JoinPage() {
           ))}
         </div>
 
-        <form className="movement-form" action="/thank-you-join">
+       <form className="movement-form" onSubmit={handleSubmit}>
           <input type="text" placeholder="First Name" />
           <input type="text" placeholder="Last Name" />
           <input type="email" placeholder="Email Address" />
