@@ -43,7 +43,7 @@ export default function SupportPage() {
           </div>
         </div>
 
-        <form className="movement-form">
+        <form className="movement-form" action="/thank-you-support">
           <input type="text" placeholder="First Name" />
           <input type="email" placeholder="Email Address" />
           <input type="text" placeholder="Country" />
