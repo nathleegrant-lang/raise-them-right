@@ -65,8 +65,8 @@ export default function Home() {
             <p className="eyebrow">A Public Awareness Initiative by Nathlee R. Grant</p>
             <h1>
                 It takes a<br />
-                community to raise<br />
-                a child.
+                community to<br />
+                raise a child.
               </h1>
             <p>
               Children are always watching, always listening, and always learning.
