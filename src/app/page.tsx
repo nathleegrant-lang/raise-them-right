@@ -63,7 +63,7 @@ export default function Home() {
           <div className="hero-overlay" />
           <div className="hero-content">
             <p className="eyebrow">A Public Awareness Initiative by Nathlee R. Grant</p>
-            <h1>It takes a community to raise a child.</h1>
+            <h1>It takes a <br>community to </br><br>raise a child.</br></h1>
             <p>
               Children are always watching, always listening, and always learning.
               #RaiseThemRight is a call for all of us to play our part well.
