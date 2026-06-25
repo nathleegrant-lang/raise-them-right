@@ -26,11 +26,12 @@ export default function PledgePage() {
 
     const { error } = await supabase.from("pledges").insert([pledge]);
 
-    if (error) {
-      setErrorMessage("Something went wrong. Please try again.");
-      setIsSubmitting(false);
-      return;
-    }
+   if (error) {
+  console.error("Supabase pledge error:", error);
+  setErrorMessage(error.message);
+  setIsSubmitting(false);
+  return;
+}
 
     router.push("/thank-you-pledge");
   }
