@@ -472,7 +472,7 @@ h1 {
 
 .action-section {
   background: linear-gradient(135deg, #f2b632, #fff1bd);
-  padding: 120px 6vw;
+  padding: 80px 6vw;
   text-align: center;
   color: var(--navy);
 }
