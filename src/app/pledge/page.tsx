@@ -28,7 +28,7 @@ export default function PledgePage() {
           <li>Playing my part in building strong homes, strong children, and a strong nation.</li>
         </ul>
 
-        <form className="pledge-form">
+       <form className="pledge-form" action="/thank-you-pledge">
           <input type="text" placeholder="First Name" />
           <input type="text" placeholder="Last Name" />
           <input type="email" placeholder="Email Address" />
