@@ -1036,3 +1036,62 @@ h1 {
   font-weight: 800;
   margin: 0;
 }
+
+/* ADMIN / MISSION CONTROL */
+
+.admin-page {
+  min-height: 100vh;
+  background: var(--soft-cream);
+  padding: 80px 6vw;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.admin-header h1 {
+  color: var(--navy);
+  font-size: clamp(3rem, 6vw, 6rem);
+  margin-bottom: 16px;
+}
+
+.admin-header p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.admin-grid {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 32px;
+  padding: 44px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(11, 29, 58, 0.1);
+}
+
+.admin-card h2 {
+  color: var(--navy);
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.admin-card p {
+  color: var(--muted);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
