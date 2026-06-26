@@ -33,10 +33,15 @@ export default async function AdminPage() {
       .order("created_at", { ascending: false })
       .limit(5),
   ]);
-
+const countries = new Set([
+  ...(recentPledges.data?.map((item) => item.country).filter(Boolean) ?? []),
+  ...(recentVolunteers.data?.map((item) => item.country).filter(Boolean) ?? []),
+  ...(recentSupport.data?.map((item) => item.country).filter(Boolean) ?? []),
+]);
   return (
     <main className="admin-page">
       <section className="admin-shell">
+        <a href="/" className="admin-back-link">← Back to Website</a>
         <div className="admin-header">
           <p className="eyebrow">#RaiseThemRight</p>
           <h1>Mission Control</h1>
@@ -44,21 +49,26 @@ export default async function AdminPage() {
         </div>
 
         <div className="admin-grid">
-          <div className="admin-card">
-            <h2>{pledgeCount.count ?? 0}</h2>
-            <p>Pledges</p>
+            <div className="admin-card">
+              <h2>{pledgeCount.count ?? 0}</h2>
+              <p>Pledges</p>
+            </div>
+          
+            <div className="admin-card">
+              <h2>{volunteerCount.count ?? 0}</h2>
+              <p>Volunteers</p>
+            </div>
+          
+            <div className="admin-card">
+              <h2>{supportCount.count ?? 0}</h2>
+              <p>Support Requests</p>
+            </div>
+          
+            <div className="admin-card">
+              <h2>{countries.size}</h2>
+              <p>Countries</p>
+            </div>
           </div>
-
-          <div className="admin-card">
-            <h2>{volunteerCount.count ?? 0}</h2>
-            <p>Volunteers</p>
-          </div>
-
-          <div className="admin-card">
-            <h2>{supportCount.count ?? 0}</h2>
-            <p>Support Requests</p>
-          </div>
-        </div>
 
         <div className="admin-lists">
           <section className="admin-list-card">
