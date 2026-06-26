@@ -1135,9 +1135,18 @@ h1 {
 }
 .admin-back-link {
   display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   color: white;
-  font-weight: 900;
-  margin-bottom: 26px;
+  font-weight: 700;
+  font-size: 1rem;
+
+  text-decoration: none;
+
+  margin-bottom: 40px;
+
+  transition: 0.3s;
 }
 
 .admin-back-link:hover {
