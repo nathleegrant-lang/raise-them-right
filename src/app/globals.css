@@ -1132,3 +1132,23 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+.admin-back-link {
+  display: inline-flex;
+  color: white;
+  font-weight: 900;
+  margin-bottom: 26px;
+}
+
+.admin-back-link:hover {
+  color: var(--gold);
+}
+
+.admin-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .admin-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
