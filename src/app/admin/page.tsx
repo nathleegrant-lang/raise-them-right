@@ -33,74 +33,127 @@ export default async function AdminPage() {
       .order("created_at", { ascending: false })
       .limit(5),
   ]);
-const countries = new Set([
-  ...(recentPledges.data?.map((item) => item.country).filter(Boolean) ?? []),
-  ...(recentVolunteers.data?.map((item) => item.country).filter(Boolean) ?? []),
-  ...(recentSupport.data?.map((item) => item.country).filter(Boolean) ?? []),
-]);
+
+  const countries = new Set([
+    ...(recentPledges.data?.map((item) => item.country).filter(Boolean) ?? []),
+    ...(recentVolunteers.data?.map((item) => item.country).filter(Boolean) ?? []),
+    ...(recentSupport.data?.map((item) => item.country).filter(Boolean) ?? []),
+  ]);
+
   return (
-    <main className="admin-page">
-      <section className="admin-shell">
-        <a href="/" className="admin-back-link">← Back to Website</a>
-        <div className="admin-header">
-          <p className="eyebrow">#RaiseThemRight</p>
-          <h1>Mission Control</h1>
-          <p>Monitor pledges, volunteers, and support requests in one place.</p>
+    <main className="mission-page">
+      <aside className="mission-sidebar">
+        <div>
+          <p className="mission-brand">#RaiseThemRight</p>
+          <h2>Mission Control</h2>
         </div>
 
-        <div className="admin-grid">
-            <div className="admin-card">
-              <h2>{pledgeCount.count ?? 0}</h2>
-              <p>Pledges</p>
-            </div>
-          
-            <div className="admin-card">
-              <h2>{volunteerCount.count ?? 0}</h2>
-              <p>Volunteers</p>
-            </div>
-          
-            <div className="admin-card">
-              <h2>{supportCount.count ?? 0}</h2>
-              <p>Support Requests</p>
-            </div>
-          
-            <div className="admin-card">
-              <h2>{countries.size}</h2>
-              <p>Countries</p>
-            </div>
+        <nav className="mission-nav">
+          <a href="/admin">Dashboard</a>
+          <a href="/admin/pledges">Pledges</a>
+          <a href="/admin/volunteers">Volunteers</a>
+          <a href="/admin/support">Support Requests</a>
+          <a href="/admin/analytics">Analytics</a>
+          <a href="/admin/export">Export</a>
+        </nav>
+
+        <a className="mission-return" href="/">
+          Return to Website
+        </a>
+      </aside>
+
+      <section className="mission-main">
+        <header className="mission-top">
+          <div>
+            <p className="eyebrow">Dashboard Overview</p>
+            <h1>Good day, Nathlee.</h1>
+            <p>
+              Here is what is happening across the #RaiseThemRight movement.
+            </p>
           </div>
 
-        <div className="admin-lists">
-          <section className="admin-list-card">
-            <h3>Recent Pledges</h3>
+          <div className="mission-date">
+            <span>Live Database</span>
+            <strong>Supabase Connected</strong>
+          </div>
+        </header>
+
+        <section className="mission-stats">
+          <article className="mission-stat-card">
+            <span>Total Pledges</span>
+            <strong>{pledgeCount.count ?? 0}</strong>
+            <p>People who have committed to the pledge.</p>
+          </article>
+
+          <article className="mission-stat-card">
+            <span>Volunteers</span>
+            <strong>{volunteerCount.count ?? 0}</strong>
+            <p>People who have joined the movement.</p>
+          </article>
+
+          <article className="mission-stat-card">
+            <span>Support Requests</span>
+            <strong>{supportCount.count ?? 0}</strong>
+            <p>Families and individuals seeking support.</p>
+          </article>
+
+          <article className="mission-stat-card">
+            <span>Communities Reached</span>
+            <strong>{countries.size}</strong>
+            <p>Countries represented in current submissions.</p>
+          </article>
+        </section>
+
+        <section className="mission-panels">
+          <article className="mission-panel">
+            <div className="mission-panel-header">
+              <h3>Recent Pledges</h3>
+              <a href="/admin/pledges">View all</a>
+            </div>
+
             {recentPledges.data?.map((item, index) => (
-              <p key={index}>
-                <strong>{item.first_name} {item.last_name}</strong><br />
-                {item.country} {item.parish_state && `• ${item.parish_state}`}
-              </p>
+              <div className="mission-record" key={index}>
+                <strong>
+                  {item.first_name} {item.last_name}
+                </strong>
+                <span>
+                  {item.country}
+                  {item.parish_state && ` • ${item.parish_state}`}
+                </span>
+              </div>
             ))}
-          </section>
+          </article>
 
-          <section className="admin-list-card">
-            <h3>Recent Volunteers</h3>
+          <article className="mission-panel">
+            <div className="mission-panel-header">
+              <h3>Recent Volunteers</h3>
+              <a href="/admin/volunteers">View all</a>
+            </div>
+
             {recentVolunteers.data?.map((item, index) => (
-              <p key={index}>
-                <strong>{item.first_name} {item.last_name}</strong><br />
-                {item.email}
-              </p>
+              <div className="mission-record" key={index}>
+                <strong>
+                  {item.first_name} {item.last_name}
+                </strong>
+                <span>{item.email}</span>
+              </div>
             ))}
-          </section>
+          </article>
 
-          <section className="admin-list-card">
-            <h3>Recent Support Requests</h3>
+          <article className="mission-panel mission-panel-wide">
+            <div className="mission-panel-header">
+              <h3>Recent Support Requests</h3>
+              <a href="/admin/support">View all</a>
+            </div>
+
             {recentSupport.data?.map((item, index) => (
-              <p key={index}>
-                <strong>{item.first_name}</strong><br />
-                {item.request_details}
-              </p>
+              <div className="mission-record" key={index}>
+                <strong>{item.first_name}</strong>
+                <span>{item.request_details}</span>
+              </div>
             ))}
-          </section>
-        </div>
+          </article>
+        </section>
       </section>
     </main>
   );
