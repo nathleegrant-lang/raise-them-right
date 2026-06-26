@@ -1098,9 +1098,19 @@ h1 {
 }
 
 .admin-lists {
+  width: min(1200px, 100%);
+  margin: 34px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+
+.admin-list-card {
+  background: rgba(255,253,247,0.96);
+  border-radius: 32px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(11, 29, 58, 0.1);
 }
 
 .admin-list-card h3 {
