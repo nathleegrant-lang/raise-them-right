@@ -863,6 +863,37 @@ h1 {
   resize: vertical;
 }
 
+.form-fieldset {
+  border: 1px solid rgba(11, 29, 58, 0.18);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.form-fieldset legend {
+  color: var(--navy);
+  font-weight: 800;
+  padding: 0 8px;
+}
+
+.form-option-grid,
+.form-option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.form-option {
+  align-items: center;
+  color: var(--muted);
+  display: inline-flex;
+  font-weight: 700;
+  gap: 8px;
+}
+
+.movement-form .form-option input {
+  width: auto;
+}
+
 @media (max-width: 900px) {
   .serve-grid {
     grid-template-columns: 1fr;
