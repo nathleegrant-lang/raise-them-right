@@ -1446,3 +1446,17 @@ h1 {
     flex-direction: column;
   }
 }
+
+.safety-note {
+  background: #fff8e7;
+  border-left: 6px solid var(--gold);
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin: 0 0 28px;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+.safety-note strong {
+  color: var(--navy);
+}
