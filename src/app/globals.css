@@ -1090,6 +1090,12 @@ h1 {
   background: rgba(255, 255, 255, 0.09);
   color: var(--gold);
 }
+.mission-nav a.active {
+    background: rgba(255,255,255,.08);
+    border-left: 4px solid var(--gold);
+    color: white;
+    padding-left: 12px;
+}
 
 .mission-main {
   padding: 40px 5vw 70px;
