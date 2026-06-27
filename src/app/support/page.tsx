@@ -59,6 +59,9 @@ export default function SupportPage() {
 
       <section className="support-card">
         <h2>How can we connect you?</h2>
+        <div className="safety-note">
+  <strong>Safety Note:</strong> If this is an emergency, or if someone is in immediate danger, please contact your local emergency services or a trusted authority right away. #RaiseThemRight is not an emergency response service.
+</div>
 
         <div className="serve-grid">
           <div className="serve-card">
