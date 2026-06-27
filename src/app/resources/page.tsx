@@ -37,8 +37,8 @@ export default function ResourcesPage() {
       <nav className="pledge-nav">
         <a href="/">Home</a>
         <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Join</a>
-        <a href="/support">Find Support</a>
+        <a href="/join">Become a Community Partner</a>
+        <a href="/support">Connect with a Community Partner</a>
       </nav>
 
       <section className="resources-hero">

@@ -5,7 +5,7 @@ export default function AboutPage() {
         <a href="/">Home</a>
         <a href="/pledge">Take the Pledge</a>
         <a href="/join">Become a Community Partner</a>
-        <a href="/support">Connect</a>
+        <a href="/support">Connect with a Community Partner</a>
       </nav>
 
       <section className="about-hero">

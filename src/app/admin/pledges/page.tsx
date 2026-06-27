@@ -19,8 +19,8 @@ export default async function PledgesPage() {
         <nav className="mission-nav">
           <a href="/admin">Dashboard</a>
           <a href="/admin/pledges" className="active">Pledges</a>
-          <a href="/admin/volunteers">Volunteers</a>
-          <a href="/admin/support">Support Requests</a>
+          <a href="/admin/volunteers">Community Partners</a>
+          <a href="/admin/support">Connection Requests</a>
           <a href="/admin/analytics">Analytics</a>
           <a href="/admin/export">Export</a>
         </nav>
