@@ -4,6 +4,28 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 
+const connectionCategories = [
+  "Prayer",
+  "Parenting",
+  "Marriage & Relationships",
+  "Fatherhood",
+  "Motherhood",
+  "Teen & Youth",
+  "Child Behaviour",
+  "Education & School",
+  "Special Needs",
+  "Grief & Loss",
+  "Personal Encouragement",
+  "Community Resources",
+  "Other",
+];
+
+const preferredConnectionMethods = [
+  "Online",
+  "In Person where available",
+  "Either",
+];
+
 export default function SupportPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,6 +44,10 @@ export default function SupportPage() {
       country: String(formData.get("country") || ""),
       parish_state: String(formData.get("parish_state") || ""),
       request_details: String(formData.get("request_details") || ""),
+      connection_categories: formData.getAll("connection_categories").map(String),
+      preferred_connection_method: String(
+        formData.get("preferred_connection_method") || "",
+      ),
     };
 
     const { error } = await supabase
@@ -101,6 +127,39 @@ export default function SupportPage() {
           <input name="email" type="email" placeholder="Email Address" required />
           <input name="country" type="text" placeholder="Country" required />
           <input name="parish_state" type="text" placeholder="Parish / State" />
+
+          <fieldset className="form-fieldset">
+            <legend>What kind of connection are you seeking?</legend>
+            <div className="form-option-grid">
+              {connectionCategories.map((category) => (
+                <label className="form-option" key={category}>
+                  <input
+                    name="connection_categories"
+                    type="checkbox"
+                    value={category}
+                  />
+                  <span>{category}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset className="form-fieldset">
+            <legend>Preferred connection method</legend>
+            <div className="form-option-row">
+              {preferredConnectionMethods.map((method) => (
+                <label className="form-option" key={method}>
+                  <input
+                    name="preferred_connection_method"
+                    type="radio"
+                    value={method}
+                    required
+                  />
+                  <span>{method}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
 
           <textarea
             name="request_details"
