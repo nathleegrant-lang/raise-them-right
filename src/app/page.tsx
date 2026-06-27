@@ -56,7 +56,7 @@ export default function Home() {
               #RaiseThemRight is a call for all of us to play our part well.
             </p>
             <div className="hero-actions">
-              <a href="/join" className="button primary">Join the Movement</a>
+              <a href="/join" className="button primary">Become a Community Partner</a>
               <a href="#movement" className="button secondary">Read the Message</a>
             </div>
           </div>
@@ -82,13 +82,13 @@ export default function Home() {
         </div>
     
         <div className="action-card">
-          <h3>Join the Movement</h3>
+          <h3>Become a Community Partner</h3>
           <p>
-            Become a volunteer, mentor, advocate, prayer partner,
+            Become a community partner, mentor, advocate, prayer partner,
             or community champion.
           </p>
           <a href="/join" className="button primary">
-            Join the Movement
+            Become a Community Partner
           </a>
         </div>
     
@@ -104,13 +104,13 @@ export default function Home() {
         </div>
     
         <div className="action-card">
-          <h3>Find Support</h3>
+          <h3>Connect with a Community Partner</h3>
           <p>
             Request prayer, mentoring, parenting guidance,
             or connect with trusted support services.
           </p>
           <a href="/support" className="button primary">
-            Find Support
+            Connect with a Community Partner
           </a>
         </div>
     
@@ -217,14 +217,14 @@ export default function Home() {
       
       <section id="join" className="join-section">
         <div className="join-card">
-          <p className="eyebrow">Join The Movement</p>
+          <p className="eyebrow">Become a Community Partner</p>
           <h2>Let us play our part well.</h2>
           <p>
             Follow the journey, share the message, encourage a parent, mentor a child, and help build the kind of community our children deserve.
           </p>
           <div className="join-actions">
            <a className="button primary" href="/pledge">Take the Pledge</a>
-            <a className="button secondary" href="/join">Join the Movement</a>
+            <a className="button secondary" href="/join">Become a Community Partner</a>
           </div>
         </div>
       </section>

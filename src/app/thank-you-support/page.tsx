@@ -2,10 +2,10 @@ export default function ThankYouSupportPage() {
   return (
     <main className="thankyou-page">
       <section className="thankyou-card">
-        <p className="eyebrow">Support Request Received</p>
+        <p className="eyebrow">Connection Request Received</p>
         <h1>You do not have to walk alone.</h1>
         <p>
-          Thank you for reaching out. Your request has been received. The heart
+          Thank you for reaching out. Your connection request has been received. The heart
           of #RaiseThemRight is to remind families that support, prayer, and
           encouragement matter.
         </p>

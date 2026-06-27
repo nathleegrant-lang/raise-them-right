@@ -51,8 +51,8 @@ export default async function AdminPage() {
         <nav className="mission-nav">
           <a href="/admin">Dashboard</a>
           <a href="/admin/pledges">Pledges</a>
-          <a href="/admin/volunteers">Volunteers</a>
-          <a href="/admin/support">Support Requests</a>
+          <a href="/admin/volunteers">Community Partners</a>
+          <a href="/admin/support">Connection Requests</a>
           <a href="/admin/analytics">Analytics</a>
           <a href="/admin/export">Export</a>
         </nav>
@@ -86,15 +86,15 @@ export default async function AdminPage() {
           </article>
 
           <article className="mission-stat-card">
-            <span>Volunteers</span>
+            <span>Community Partners</span>
             <strong>{volunteerCount.count ?? 0}</strong>
-            <p>People who have joined the movement.</p>
+            <p>People who have become community partners.</p>
           </article>
 
           <article className="mission-stat-card">
-            <span>Support Requests</span>
+            <span>Connection Requests</span>
             <strong>{supportCount.count ?? 0}</strong>
-            <p>Families and individuals seeking support.</p>
+            <p>Families and individuals requesting connection.</p>
           </article>
 
           <article className="mission-stat-card">
@@ -126,7 +126,7 @@ export default async function AdminPage() {
 
           <article className="mission-panel">
             <div className="mission-panel-header">
-              <h3>Recent Volunteers</h3>
+              <h3>Recent Community Partners</h3>
               <a href="/admin/volunteers">View all</a>
             </div>
 
@@ -142,7 +142,7 @@ export default async function AdminPage() {
 
           <article className="mission-panel mission-panel-wide">
             <div className="mission-panel-header">
-              <h3>Recent Support Requests</h3>
+              <h3>Recent Connection Requests</h3>
               <a href="/admin/support">View all</a>
             </div>
 

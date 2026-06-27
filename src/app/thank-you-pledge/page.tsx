@@ -10,7 +10,7 @@ export default function ThankYouPledgePage() {
         </p>
 
         <div className="thankyou-actions">
-          <a href="/join" className="button primary">Join the Movement</a>
+          <a href="/join" className="button primary">Become a Community Partner</a>
           <a href="/" className="button secondary">Return Home</a>
         </div>
       </section>

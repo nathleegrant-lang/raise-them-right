@@ -43,13 +43,13 @@ export default function SupportPage() {
       <nav className="pledge-nav">
         <a href="/">Home</a>
         <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Join</a>
+        <a href="/join">Become a Community Partner</a>
         <a href="/resources">Resources</a>
       </nav>
 
       <section className="support-hero">
         <p className="eyebrow">#RaiseThemRight</p>
-        <h1>Find Support</h1>
+        <h1>Connect with a Community Partner</h1>
         <p>
           No parent should have to feel alone. Whether you need prayer,
           parenting guidance, mentorship, or referral support, this is a place
@@ -58,7 +58,7 @@ export default function SupportPage() {
       </section>
 
       <section className="support-card">
-        <h2>How can we support you?</h2>
+        <h2>How can we connect you?</h2>
 
         <div className="serve-grid">
           <div className="serve-card">
@@ -101,14 +101,14 @@ export default function SupportPage() {
 
           <textarea
             name="request_details"
-            placeholder="Briefly share the support you are seeking."
+            placeholder="Briefly share the connection you are seeking."
             required
           />
 
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
           <button type="submit" className="button primary" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Request Support"}
+            {isSubmitting ? "Submitting..." : "Request a Connection"}
           </button>
         </form>
       </section>

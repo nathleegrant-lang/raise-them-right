@@ -53,12 +53,12 @@ export default function JoinPage() {
         <a href="/">Home</a>
         <a href="/pledge">Take the Pledge</a>
         <a href="/resources">Resources</a>
-        <a href="/support">Find Support</a>
+        <a href="/support">Connect with a Community Partner</a>
       </nav>
 
       <section className="join-hero">
         <p className="eyebrow">#RaiseThemRight</p>
-        <h1>Join The Movement</h1>
+        <h1>Become a Community Partner</h1>
         <p>
           Strong homes are built one relationship at a time. Join us as we
           support parents, strengthen communities, and invest in the next
@@ -97,7 +97,7 @@ export default function JoinPage() {
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
           <button type="submit" className="button primary" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Join The Movement"}
+            {isSubmitting ? "Submitting..." : "Become a Community Partner"}
           </button>
         </form>
       </section>

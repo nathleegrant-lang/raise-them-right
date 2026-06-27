@@ -3,7 +3,7 @@ export default function ThankYouJoinPage() {
     <main className="thankyou-page">
       <section className="thankyou-card">
         <p className="eyebrow">Thank You</p>
-        <h1>Thank you for joining the movement.</h1>
+        <h1>Thank you for becoming a Community Partner.</h1>
         <p>
           Your willingness to serve matters. Together, we can strengthen homes,
           support families, and invest in the next generation.

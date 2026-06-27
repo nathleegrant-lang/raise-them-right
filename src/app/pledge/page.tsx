@@ -42,7 +42,7 @@ export default function PledgePage() {
         <a href="/">Home</a>
         <a href="/#community">Community</a>
         <a href="/resources">Resources</a>
-        <a href="/join">Join</a>
+        <a href="/join">Become a Community Partner</a>
       </nav>
 
       <section className="pledge-hero">
