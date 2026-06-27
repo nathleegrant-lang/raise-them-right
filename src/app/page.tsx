@@ -44,6 +44,7 @@ export default function Home() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="/">Home</a>
+          <a href="/about">Our Foundation</a>
           <a href="/pledge">Take the Pledge</a>
           <a href="/join">Join</a>
           <a href="/resources">Resources</a>
