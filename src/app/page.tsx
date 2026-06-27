@@ -32,25 +32,7 @@ function BrushDivider() {
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="#RaiseThemRight home">
-          <Image
-            src="/images/raisethemright-logo-primary.png"
-            alt="#RaiseThemRight - Strong Homes. Strong Children. Strong Nation."
-            width={900}
-            height={360}
-            priority
-          />
-        </a>
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/about">Our Foundation</a>
-          <a href="/pledge">Take the Pledge</a>
-          <a href="/join">Join</a>
-          <a href="/resources">Resources</a>
-          <a href="/support">Find Support</a>
-        </nav>
-      </header>
+     
 
       <section id="top" className="hero-section">
         <div className="hero-image-wrap">
@@ -247,25 +229,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer">
-        <Image
-          src="/images/raisethemright-logo-primary.png"
-          alt="#RaiseThemRight logo"
-          width={520}
-          height={220}
-        />
-        <p>A Public Awareness Initiative by Nathlee R. Grant</p>
-        <p>Strong Homes. Strong Children. Strong Nation.</p>
-
-        <div className="footer-links">
-  <a href="https://www.instagram.com/nathlee.grant/" target="_blank" rel="noreferrer">
-    Instagram
-  </a>
-  <a href="mailto:nathlee_grant@yahoo.com">
-    Email
-  </a>
-</div>
-      </footer>
+    
     </main>
   );
 }
