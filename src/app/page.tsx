@@ -135,7 +135,12 @@ export default function Home() {
       </div>
     </section>
       
-   
+        <section className="quote-band">
+        <div>
+          <p>The question is not whether we influence children.</p>
+          <h2>The question is what are we teaching them?</h2>
+        </div>
+      </section>
       <section id="community" className="section community-section">
         <div className="image-panel wide">
           <Image
