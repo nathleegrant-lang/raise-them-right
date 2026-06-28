@@ -4,7 +4,20 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-container">
-        <div className="footer-brand">
+        
+
+        <div className="footer-links">
+          <h3>Explore</h3>
+          <p>
+          <a href="/">Home</a>
+          <a href="/about">Foundation</a>
+          <a href="/pledge">Pledge</a></p>
+          <p>
+          <a href="/join">Community Partner</a>
+          <a href="/support">Connect</a>
+          <a href="/resources">Resources</a></p>
+        </div>
+<div className="footer-brand">
           <h2>#RaiseThemRight</h2>
 
           <p className="footer-tagline">Rebuilding the Global Village</p>
@@ -16,17 +29,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="footer-links">
-          <h3>Explore</h3>
-
-          <a href="/">Home</a>
-          <a href="/about">Foundation</a>
-          <a href="/pledge">Pledge</a>
-          <a href="/join">Community Partner</a>
-          <a href="/support">Connect</a>
-          <a href="/resources">Resources</a>
-        </div>
-
+        
         <div className="footer-links">
           <h3>Our Belief</h3>
           <p className="footer-quote">
