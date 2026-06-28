@@ -1,169 +1,114 @@
 import Image from "next/image";
 
-const roles = [
-  "Parents",
-  "Teachers",
-  "Coaches",
-  "Neighbours",
-  "Faith communities",
-  "Business owners",
-  "Bus and taxi operators",
-  "Community mentors",
-];
-
 const beliefs = [
-  "Parents carry the primary responsibility for raising children.",
-  "Children are shaped by more than what happens inside their homes.",
-  "Every adult influences children through words, actions, attitudes, and example.",
-  "Faith, family, community, and responsibility help form strong character.",
-  "Support should strengthen parents, not replace them.",
+  "Every child deserves a strong village.",
+  "Strong families create strong communities.",
+  "No family should walk alone.",
+  "Every person has something valuable to give.",
+  "Technology should strengthen human connection.",
 ];
-
-const pillars = [
-  { title: "Strong Homes", text: "The first place children learn love, discipline, faith, and character." },
-  { title: "Strong Communities", text: "The village around the child must become safe, caring, and intentional." },
-  { title: "Strong Nation", text: "When children are raised well, the future of the nation is strengthened." },
-];
-
-function BrushDivider() {
-  return <span className="brush-divider" aria-hidden="true" />;
-}
 
 export default function Home() {
   return (
     <main>
-     
-
       <section id="top" className="hero-section">
         <div className="hero-image-wrap">
           <Image
             src="/images/raise-them-right-hero.jpg"
-            alt="A warm community scene with children, a parent, a shopkeeper, and a transport operator interacting positively."
+            alt="A warm community scene with adults and children."
             fill
             priority
             className="hero-image"
           />
           <div className="hero-overlay" />
+
           <div className="hero-content">
-            <p className="eyebrow">A Public Awareness Initiative by Nathlee R. Grant</p>
+            <p className="eyebrow">#RaiseThemRight</p>
             <h1>
-                It takes a<br />
-                community to<br />
-                raise a child.
-              </h1>
+              Rebuilding the<br />
+              Global Village
+            </h1>
             <p>
-              Children are always watching, always listening, and always learning.
-              #RaiseThemRight is a call for all of us to play our part well.
+              Strengthening the people who raise children through faith,
+              family, community, and meaningful connections.
             </p>
+
             <div className="hero-actions">
-              <a href="/join" className="button primary">Become a Community Partner</a>
-              <a href="#movement" className="button secondary">Read the Message</a>
+              <a href="/pledge" className="button primary">Take the Pledge</a>
+              <a href="/about" className="button secondary">Our Foundation</a>
             </div>
           </div>
         </div>
       </section>
 
-    <section className="action-section">
-      <p className="eyebrow">How Would You Like To Participate?</p>
-    
-      <h2>Choose Your Next Step</h2>
-    
-      <div className="action-grid">
-    
-        <div className="action-card">
-          <h3>Take the Pledge</h3>
-          <p>
-            Commit to supporting parents, encouraging children,
-            and helping raise the next generation well.
-          </p>
-          <a href="/pledge" className="button primary">
-            Take the Pledge
-          </a>
-        </div>
-    
-        <div className="action-card">
-          <h3>Become a Community Partner</h3>
-          <p>
-            Become a community partner, mentor, advocate, prayer partner,
-            or community champion.
-          </p>
-          <a href="/join" className="button primary">
-            Become a Community Partner
-          </a>
-        </div>
-    
-        <div className="action-card">
-          <h3>Access Parenting Resources</h3>
-          <p>
-            Discover practical tools, articles, guides,
-            and encouragement for parents and caregivers.
-          </p>
-          <a href="/resources" className="button primary">
-            Access Resources
-          </a>
-        </div>
-    
-        <div className="action-card">
-          <h3>Connect with a Community Partner</h3>
-          <p>
-            Request prayer, mentoring, parenting guidance,
-            or connect with trusted support services.
-          </p>
-          <a href="/support" className="button primary">
-            Connect with a Community Partner
-          </a>
-        </div>
-    
-      </div>
-    </section>
-      
-        <section className="quote-band">
-        <div>
-          <p>The question is not whether we influence children.</p>
-          <h2>The question is what are we teaching them?</h2>
-        </div>
-      </section>
-      <section id="community" className="section community-section">
-        <div className="image-panel wide">
-          <Image
-            src="/images/get-back-the-community.jpg"
-            alt="A global montage of adults from different communities positively interacting with children."
-            width={1600}
-            height={1000}
-          />
-        </div>
-        <div className="section-copy">
-          <p className="eyebrow">Get Back The Community</p>
-          <h2>Every adult leaves an imprint.</h2>
-          <BrushDivider />
-          <p>
-            Children interact with many people in the course of their day. From the ride to school, to the conversations they hear, to the examples they see, our words, actions, and attitudes help shape the children around us.
-          </p>
-          <div className="role-grid">
-            {roles.map((role) => <span key={role}>{role}</span>)}
+      <section className="action-section">
+        <p className="eyebrow">Choose Your Door Into The Village</p>
+        <h2>How would you like to be part of the village?</h2>
+
+        <p className="action-intro">
+          Whether you are ready to stand with the vision, serve as a Community
+          Partner, or connect with someone who can walk alongside you, there is
+          a place for you here.
+        </p>
+
+        <div className="action-grid three">
+          <div className="action-card">
+            <h3>Take the Pledge</h3>
+            <p>
+              Stand with the vision and commit to strengthening the people who
+              raise children.
+            </p>
+            <a href="/pledge" className="button primary">Take the Pledge</a>
+          </div>
+
+          <div className="action-card">
+            <h3>Become a Community Partner</h3>
+            <p>
+              Share your encouragement, prayer, mentorship, experience, or
+              professional expertise with families seeking connection.
+            </p>
+            <a href="/join" className="button primary">Become a Partner</a>
+          </div>
+
+          <div className="action-card">
+            <h3>Connect with a Community Partner</h3>
+            <p>
+              No family should walk alone. Connect with someone ready to listen,
+              encourage, and walk alongside you.
+            </p>
+            <a href="/support" className="button primary">Connect Today</a>
           </div>
         </div>
       </section>
 
-      <section className="section support-section">
-        <div className="section-copy">
-          <p className="eyebrow">Parents Need Support. Not Replacement.</p>
-          <h2>No parent should have to feel alone.</h2>
-          <BrushDivider />
-          <p>
-            Parents carry the primary responsibility for raising children. Support should never confuse or replace that responsibility. Instead, communities should come alongside parents with encouragement, guidance, safe spaces, and positive examples.
-          </p>
-          <p>
-            The goal is not to take over the role of parents. The goal is to strengthen the village around the child.
-          </p>
-        </div>
-        <div className="image-panel">
+      <section className="section community-section">
+        <div className="image-panel wide">
           <Image
-            src="/images/parents-need-support.jpg"
-            alt="A mother helping her son and a father helping his daughter with learning at home."
+            src="/images/get-back-the-community.jpg"
+            alt="A global montage of adults and children in community."
             width={1600}
             height={1000}
           />
+        </div>
+
+        <div className="section-copy">
+          <p className="eyebrow">Why We Exist</p>
+          <h2>It still takes a village.</h2>
+          <span className="brush-divider" />
+          <p>
+            Children are shaped by far more than their parents. Every
+            conversation, every act of kindness, every lesson, and every example
+            leaves a mark.
+          </p>
+          <p>
+            For generations, communities naturally surrounded families with
+            encouragement, wisdom, accountability, and support. Many families
+            today walk that journey alone.
+          </p>
+          <p>
+            #RaiseThemRight exists to help rebuild those connections — one
+            meaningful connection at a time.
+          </p>
         </div>
       </section>
 
@@ -171,65 +116,43 @@ export default function Home() {
         <div className="belief-inner">
           <p className="eyebrow light">What We Believe</p>
           <h2>Strong homes are strengthened by strong communities.</h2>
+
           <div className="belief-list">
-            {beliefs.map((item) => <div key={item} className="belief-item">{item}</div>)}
+            {beliefs.map((belief) => (
+              <div className="belief-item" key={belief}>
+                {belief}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section faith-section">
+      <section className="section support-section">
+        <div className="section-copy">
+          <p className="eyebrow">No Family Should Walk Alone</p>
+          <h2>There is a place for you here.</h2>
+          <span className="brush-divider" />
+          <p>
+            Whether you are looking for encouragement or you are ready to
+            encourage someone else, the village grows stronger when people
+            choose to connect.
+          </p>
+
+          <div className="hero-actions">
+            <a href="/join" className="button primary">Become a Community Partner</a>
+            <a href="/support" className="button secondary">Connect with a Partner</a>
+          </div>
+        </div>
+
         <div className="image-panel">
           <Image
-            src="/images/faith-and-family.jpg"
-            alt="A family gathered in prayer around an open Bible in a warm home setting."
+            src="/images/parents-need-support.jpg"
+            alt="Parents and children spending meaningful time together."
             width={1600}
             height={1000}
           />
         </div>
-        <div className="section-copy">
-          <p className="eyebrow">Faith and Family</p>
-          <h2>Faith helps shape what children know, value, and become.</h2>
-          <BrushDivider />
-          <p>
-            The Bible tells us that a generation arose that did not know God because the generation before them did not tell them about Him. What children know is the responsibility of the present generation.
-          </p>
-          <p>
-            #RaiseThemRight encourages homes and communities to pass on faith, character, wisdom, and responsibility with love and consistency.
-          </p>
-        </div>
       </section>
-
-      <section id="resources" className="pillars-section">
-        <p className="eyebrow">Movement Pillars</p>
-        <h2>From the home to the nation.</h2>
-        <div className="pillars-grid">
-          {pillars.map((pillar) => (
-            <article className="pillar-card" key={pillar.title}>
-              <h3>{pillar.title}</h3>
-              <BrushDivider />
-              <p>{pillar.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-    
-      
-      <section id="join" className="join-section">
-        <div className="join-card">
-          <p className="eyebrow">Become a Community Partner</p>
-          <h2>Let us play our part well.</h2>
-          <p>
-            Follow the journey, share the message, encourage a parent, mentor a child, and help build the kind of community our children deserve.
-          </p>
-          <div className="join-actions">
-           <a className="button primary" href="/pledge">Take the Pledge</a>
-            <a className="button secondary" href="/join">Become a Community Partner</a>
-          </div>
-        </div>
-      </section>
-
-    
     </main>
   );
 }
