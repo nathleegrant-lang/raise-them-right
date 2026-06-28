@@ -661,6 +661,10 @@ h1 {
   }
 }
 
+.action-grid.three {
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 560px) {
   .brand {
     width: min(320px, 80vw);
