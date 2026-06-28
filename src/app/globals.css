@@ -94,6 +94,28 @@ img {
   transform: scaleX(1);
 }
 
+/* HEADER POLISH */
+
+.brand {
+  width: min(340px, 28vw);
+}
+
+.brand img {
+  height: 72px;
+}
+
+.nav-links {
+  gap: 22px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.nav-links a {
+  max-width: 145px;
+  text-align: center;
+}
+
 /* HERO */
 
 .hero-section {
