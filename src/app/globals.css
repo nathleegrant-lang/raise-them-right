@@ -687,6 +687,12 @@ h1 {
 .footer-links a:hover {
   color: var(--gold-dark);
 }
+.footer-quote {
+  color: white !important;
+  font-size: 1.15rem !important;
+  font-weight: 800;
+  max-width: 260px;
+}
 
 
 /* PLEDGE PAGE */
