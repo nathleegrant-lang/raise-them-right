@@ -44,9 +44,11 @@ export default function SupportPage() {
       country: String(formData.get("country") || ""),
       parish_state: String(formData.get("parish_state") || ""),
       request_details: String(formData.get("request_details") || ""),
-      connection_categories: formData.getAll("connection_categories").map(String),
+      connection_categories: formData
+        .getAll("connection_categories")
+        .map(String),
       preferred_connection_method: String(
-        formData.get("preferred_connection_method") || "",
+        formData.get("preferred_connection_method") || ""
       ),
     };
 
@@ -55,7 +57,7 @@ export default function SupportPage() {
       .insert([supportRequest]);
 
     if (error) {
-      console.error("Supabase support request error:", error);
+      console.error("Supabase connection request error:", error);
       setErrorMessage(error.message);
       setIsSubmitting(false);
       return;
@@ -66,70 +68,94 @@ export default function SupportPage() {
 
   return (
     <main className="support-page">
-      <nav className="pledge-nav">
-        <a href="/">Home</a>
-        <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Become a Community Partner</a>
-        <a href="/resources">Resources</a>
-      </nav>
-
       <section className="support-hero">
         <p className="eyebrow">#RaiseThemRight</p>
+
         <h1>Connect with a Community Partner</h1>
+
         <p>
-          No parent should have to feel alone. Whether you need prayer,
-          parenting guidance, mentorship, or referral support, this is a place
-          to begin.
+          Every family needs encouragement from time to time. Whether you are
+          looking for prayer, parenting guidance, mentorship, or simply someone
+          who will listen, you do not have to take the next step alone. Welcome
+          to the Global Village.
         </p>
       </section>
 
       <section className="support-card">
-        <h2>How can we connect you?</h2>
+        <h2>How would you like to connect?</h2>
+
         <div className="safety-note">
-  <strong>Safety Note:</strong> If this is an emergency, or if someone is in immediate danger, please contact your local emergency services or a trusted authority right away. #RaiseThemRight is not an emergency response service.
-</div>
+          <strong>Safety Note:</strong> If this is an emergency, or if someone
+          is in immediate danger, please contact your local emergency services
+          or a trusted authority right away. #RaiseThemRight is not an emergency
+          response service.
+        </div>
 
         <div className="serve-grid">
           <div className="serve-card">
-            <h3>Prayer Request</h3>
+            <h3>Prayer</h3>
             <p>
-              Share a prayer need for your child, family, home, or community.
+              Share a prayer request for yourself, your family, or your
+              community.
             </p>
           </div>
 
           <div className="serve-card">
             <h3>Parenting Guidance</h3>
             <p>
-              Ask for support with behaviour, communication, school issues, or
-              family challenges.
+              Connect with someone who understands both the joys and challenges
+              of raising children.
             </p>
           </div>
 
           <div className="serve-card">
             <h3>Mentorship</h3>
             <p>
-              Request mentorship support for a child, teen, parent, or young
-              adult.
+              Find encouragement for a child, teenager, young adult, or even
+              yourself.
             </p>
           </div>
 
           <div className="serve-card">
-            <h3>Referral Support</h3>
+            <h3>Community Resources</h3>
             <p>
-              Connect with trusted counselling, church, or community support
-              services where possible.
+              Discover trusted churches, organizations, and community services
+              that may be able to help.
             </p>
           </div>
         </div>
 
+        <div className="connection-note">
+          <h3>Before You Continue</h3>
+          <p>
+            Every story matters. You do not need to tell us everything today.
+            Simply share enough for us to help connect you with a Community
+            Partner who may be a good fit for your journey.
+          </p>
+        </div>
+
         <form className="movement-form" onSubmit={handleSubmit}>
-          <input name="first_name" type="text" placeholder="First Name" required />
-          <input name="email" type="email" placeholder="Email Address" required />
+          <input
+            name="first_name"
+            type="text"
+            placeholder="First Name"
+            required
+          />
+
+          <input
+            name="email"
+            type="email"
+            placeholder="Email Address"
+            required
+          />
+
           <input name="country" type="text" placeholder="Country" required />
+
           <input name="parish_state" type="text" placeholder="Parish / State" />
 
           <fieldset className="form-fieldset">
-            <legend>What kind of connection are you seeking?</legend>
+            <legend>What would you like to connect about?</legend>
+
             <div className="form-option-grid">
               {connectionCategories.map((category) => (
                 <label className="form-option" key={category}>
@@ -145,7 +171,8 @@ export default function SupportPage() {
           </fieldset>
 
           <fieldset className="form-fieldset">
-            <legend>Preferred connection method</legend>
+            <legend>How would you prefer to connect?</legend>
+
             <div className="form-option-row">
               {preferredConnectionMethods.map((method) => (
                 <label className="form-option" key={method}>
@@ -163,15 +190,25 @@ export default function SupportPage() {
 
           <textarea
             name="request_details"
-            placeholder="Briefly share the connection you are seeking."
-            required
+            placeholder="Tell us a little more (optional). Share only what you are comfortable sharing today."
           />
 
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
-          <button type="submit" className="button primary" disabled={isSubmitting}>
+          <button
+            type="submit"
+            className="button primary"
+            disabled={isSubmitting}
+          >
             {isSubmitting ? "Submitting..." : "Request a Connection"}
           </button>
+
+          <p className="privacy-note">
+            <strong>Your privacy matters.</strong> Personal contact information
+            is never shared publicly. Information you provide is used only to
+            help facilitate a safe and appropriate connection with a Community
+            Partner.
+          </p>
         </form>
       </section>
     </main>
