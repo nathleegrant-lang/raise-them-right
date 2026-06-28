@@ -23,11 +23,11 @@ export default function Footer() {
         <div className="footer-links">
           <h3>Explore</h3>
 
-          <a href="/">Home</a>
-          <a href="/about">Our Foundation</a>
-          <a href="/pledge">Take the Pledge</a>
-          <a href="/join">Become a Community Partner</a>
-          <a href="/support">Connect with a Community Partner</a>
+         <a href="/">Home</a>
+          <a href="/about">Foundation</a>
+          <a href="/pledge">Pledge</a>
+          <a href="/join">Community Partner</a>
+          <a href="/support">Connect</a>
           <a href="/resources">Resources</a>
         </div>
 
