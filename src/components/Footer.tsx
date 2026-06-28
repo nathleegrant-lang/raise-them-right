@@ -11,8 +11,7 @@ export default function Footer() {
           <p>
           <a href="/">Home</a>
           <a href="/about">Foundation</a>
-          <a href="/pledge">Pledge</a></p>
-          <p>
+          <a href="/pledge">Pledge</a>
           <a href="/join">Community Partner</a>
           <a href="/support">Connect</a>
           <a href="/resources">Resources</a></p>
