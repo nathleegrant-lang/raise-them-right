@@ -504,6 +504,10 @@ h1 {
   gap: 22px;
 }
 
+.action-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .action-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: 32px;
@@ -533,18 +537,79 @@ h1 {
   width: 100%;
 }
 
-  @media (max-width: 1100px) {
-  .action-grid {
+@media (max-width: 1100px) {
+  .action-grid,
+  .action-grid.three {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 620px) {
-  .action-grid {
+@media (max-width: 900px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 4px;
+  }
+
+  .hero-image-wrap {
+    min-height: 82vh;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 29, 58, 0.8),
+      rgba(11, 29, 58, 0.35)
+    );
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    padding: 70px 0;
+  }
+
+  .section,
+  .founder-section,
+  .community-section,
+  .support-section,
+  .faith-section {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-image-card {
+    max-width: 430px;
+    min-height: 520px;
+    margin: 0 auto;
+  }
+
+  .support-section .section-copy {
+    order: 2;
+  }
+
+  .support-section .image-panel {
+    order: 1;
+  }
+
+  .belief-list,
+  .pillars-grid,
+  .action-grid,
+  .action-grid.three {
     grid-template-columns: 1fr;
   }
 }
 
+@media (max-width: 620px) {
+  .action-grid,
+  .action-grid.three {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* JOIN */
 
