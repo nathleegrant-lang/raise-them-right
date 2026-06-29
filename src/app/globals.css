@@ -1081,27 +1081,27 @@ h1 {
 }
 
 .thankyou-card {
-  width: min(850px, 100%);
+  width: min(760px, 100%);
   background: rgba(255, 253, 247, 0.96);
   border-radius: 42px;
-  padding: clamp(38px, 6vw, 80px);
+  padding: clamp(38px, 6vw, 76px);
   box-shadow: var(--shadow);
   text-align: center;
 }
 
 .thankyou-card h1 {
   color: var(--navy);
-  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
   line-height: 1;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .thankyou-card p:not(.eyebrow) {
   color: var(--muted);
-  font-size: 1.2rem;
-  line-height: 1.8;
-  max-width: 720px;
-  margin: 0 auto;
+  font-size: 1.12rem;
+  line-height: 1.85;
+  max-width: 640px;
+  margin: 0 auto 12px;
 }
 
 .thankyou-actions {
@@ -1109,7 +1109,7 @@ h1 {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-top: 34px;
+  margin-top: 40px;
 }
 
 .form-error {
