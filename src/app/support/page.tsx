@@ -71,7 +71,7 @@ export default function SupportPage() {
       <section className="support-hero">
         <p className="eyebrow">#RaiseThemRight</p>
 
-        <h1>Connect with a Community Partner</h1>
+        <h1>Connect</h1>
 
         <p>
           Every family needs encouragement from time to time. Whether you are

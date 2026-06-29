@@ -62,21 +62,54 @@ export default function Home() {
           </div>
 
           <div className="action-card">
-            <h3>Become a Community Partner</h3>
+            <h3>Community Partners</h3>
             <p>
               Share your encouragement, prayer, mentorship, experience, or
               professional expertise with families seeking connection.
             </p>
-            <a href="/join" className="button primary">Become a Partner</a>
+            <a href="/join" className="button primary">Community Partners</a>
           </div>
 
           <div className="action-card">
-            <h3>Connect with a Community Partner</h3>
+            <h3>Connect</h3>
             <p>
               No family should walk alone. Connect with someone ready to listen,
               encourage, and walk alongside you.
             </p>
-            <a href="/support" className="button primary">Connect Today</a>
+            <a href="/support" className="button primary">Connect</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="village-works-section">
+        <div className="village-works-inner">
+          <p className="eyebrow">How the Village Works</p>
+          <h2>Every connection begins with a thoughtful next step.</h2>
+
+          <div className="village-steps-grid">
+            <div className="village-step-card">
+              <h3>Choose Your Place</h3>
+              <p>
+                Take the pledge, become a Community Partner, or request a
+                connection.
+              </p>
+            </div>
+
+            <div className="village-step-card">
+              <h3>Build Safe Connections</h3>
+              <p>
+                The platform helps introduce families and Community Partners
+                through a thoughtful and privacy-conscious process.
+              </p>
+            </div>
+
+            <div className="village-step-card">
+              <h3>Grow Together</h3>
+              <p>
+                Encourage one another through prayer, mentorship, parenting
+                support, and community.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -139,8 +172,8 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <a href="/join" className="button primary">Become a Community Partner</a>
-            <a href="/support" className="button secondary">Connect with a Partner</a>
+            <a href="/join" className="button primary">Community Partners</a>
+            <a href="/support" className="button secondary">Connect</a>
           </div>
         </div>
 

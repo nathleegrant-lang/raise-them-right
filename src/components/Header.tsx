@@ -16,9 +16,9 @@ export default function Header() {
       <nav className="nav-links" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about">Our Foundation</a>
-        <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Become a Community Partner</a>
-        <a href="/support">Connect with a Community Partner</a>
+        <a href="/pledge">The Pledge</a>
+        <a href="/join">Community Partners</a>
+        <a href="/support">Connect</a>
         <a href="/resources">Resources</a>
       </nav>
     </header>

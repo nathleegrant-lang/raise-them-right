@@ -1,50 +1,49 @@
 export default function ResourcesPage() {
   const resources = [
     {
-      title: "Parenting Basics",
+      title: "Parenting Encouragement",
       description:
-        "Practical guidance for building strong relationships, discipline, communication, and trust.",
+        "Faith-filled support for parents and caregivers who are building strong homes with patience, wisdom, and love.",
+      buttonLabel: "View Resources",
     },
     {
-      title: "Faith in the Home",
+      title: "Prayer & Faith",
       description:
-        "Ideas and encouragement for introducing prayer, faith, and biblical values at home.",
+        "Simple prayer prompts, biblical encouragement, and spiritual reminders for families and Community Partners.",
+      buttonLabel: "View Resources",
     },
     {
-      title: "Character Building",
+      title: "Community Building",
       description:
-        "Teaching honesty, responsibility, kindness, perseverance, and respect.",
+        "Guidance for strengthening the Global Village through trust, encouragement, shared responsibility, and local connection.",
+      buttonLabel: "View Resources",
     },
     {
-      title: "Supporting Teenagers",
+      title: "Family Conversation Starters",
       description:
-        "Helping teenagers navigate identity, peer pressure, education, and decision-making.",
+        "Thoughtful questions and discussion ideas to help families listen well, talk openly, and grow closer together.",
+      buttonLabel: "View Resources",
     },
     {
-      title: "Community & Mentorship",
+      title: "Youth & Mentorship",
       description:
-        "How communities can support families and positively influence children.",
+        "Encouragement for mentoring children, teenagers, and young adults with wisdom, consistency, and care.",
+      buttonLabel: "View Resources",
     },
     {
-      title: "Recommended Resources",
+      title: "Safety & Trust",
       description:
-        "Books, articles, videos, and organizations that strengthen families and communities.",
+        "Practical reminders for privacy-conscious connections, healthy boundaries, and safe community support.",
+      buttonLabel: "View Resources",
     },
   ];
-
   return (
     <main className="resources-page">
-      <nav className="pledge-nav">
-        <a href="/">Home</a>
-        <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Become a Community Partner</a>
-        <a href="/support">Connect with a Community Partner</a>
-      </nav>
 
       <section className="resources-hero">
         <p className="eyebrow">#RaiseThemRight</p>
 
-        <h1>Parenting Resources</h1>
+        <h1>Resources</h1>
 
         <p>
           Practical tools, encouragement, and guidance to help strengthen homes,
@@ -67,7 +66,7 @@ export default function ResourcesPage() {
               <p>{resource.description}</p>
 
               <button className="button primary">
-                Coming Soon
+                {resource.buttonLabel}
               </button>
             </div>
           ))}

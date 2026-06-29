@@ -245,7 +245,8 @@ h1 {
 .pillars-section h2,
 .belief-inner h2,
 .join-card h2,
-.action-section h2 {
+.action-section h2,
+.village-works-section h2 {
   color: var(--navy);
   font-size: clamp(2.2rem, 4vw, 4.2rem);
   line-height: 1;
@@ -490,6 +491,52 @@ h1 {
   line-height: 1.7;
 }
 
+
+/* HOW THE VILLAGE WORKS */
+
+.village-works-section {
+  background: var(--soft-cream);
+  padding: 90px 6vw;
+}
+
+.village-works-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.village-works-section h2 {
+  max-width: 780px;
+  margin: 0 auto 40px;
+}
+
+.village-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  text-align: left;
+}
+
+.village-step-card {
+  background: white;
+  border: 1px solid rgba(11, 29, 58, 0.1);
+  border-radius: 30px;
+  padding: 34px;
+  box-shadow: 0 18px 50px rgba(11, 29, 58, 0.08);
+}
+
+.village-step-card h3 {
+  color: var(--navy);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.village-step-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* PARTICIPATION SECTION */
 
 .action-section {
@@ -620,6 +667,7 @@ h1 {
 
   .belief-list,
   .pillars-grid,
+  .village-steps-grid,
   .action-grid,
   .action-grid.three {
     grid-template-columns: 1fr;
@@ -656,44 +704,6 @@ h1 {
   line-height: 1.75;
   font-size: 1.1rem;
 }
-
-/* FOOTER */
-
-.footer {
-  padding: 44px 6vw 56px;
-  text-align: center;
-  background: white;
-  border-top: 1px solid var(--line);
-}
-
-.footer img {
-  width: min(440px, 80vw);
-}
-
-.footer p {
-  margin: 8px 0;
-  color: var(--navy);
-  font-weight: 800;
-}
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 18px;
-  font-weight: 900;
-  color: var(--navy);
-}
-
-.footer-links a:hover {
-  color: var(--gold-dark);
-}
-.footer-quote {
-  color: white !important;
-  font-size: 1.15rem !important;
-  font-weight: 800;
-  max-width: 260px;
-}
-
 
 /* PLEDGE PAGE */
 
@@ -760,22 +770,6 @@ h1 {
   border-radius: 14px;
   border: 1px solid rgba(11, 29, 58, 0.18);
   font-size: 1rem;
-}
-.pledge-nav {
-  position: absolute;
-  top: 24px;
-  left: 6vw;
-  right: 6vw;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  color: white;
-  font-weight: 800;
-}
-
-.pledge-nav a:hover {
-  color: var(--gold);
 }
 /* JOIN MOVEMENT PAGE */
 

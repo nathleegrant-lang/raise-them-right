@@ -10,12 +10,36 @@ export default function JoinPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const roles = [
-    "Prayer Partner",
-    "Mentor",
-    "Community Champion",
-    "Parent Advocate",
-    "Faith Partner",
-    "Professional Support",
+    {
+      title: "Prayer Partner",
+      description:
+        "Walk alongside individuals and families through prayer, encouragement, and spiritual support.",
+    },
+    {
+      title: "Mentor",
+      description:
+        "Share life experience, wisdom, and practical guidance with children, teenagers, parents, or young adults.",
+    },
+    {
+      title: "Community Champion",
+      description:
+        "Help strengthen local communities by encouraging families, promoting the movement, and supporting village-building efforts.",
+    },
+    {
+      title: "Parent Advocate",
+      description:
+        "Encourage and support parents as they navigate the responsibilities, challenges, and joys of raising children.",
+    },
+    {
+      title: "Faith Partner",
+      description:
+        "Support families through biblical encouragement, discipleship, prayer, and hope.",
+    },
+    {
+      title: "Professional Support",
+      description:
+        "Offer expertise in areas such as education, counselling, social work, healthcare, youth development, legal guidance, or family support.",
+    },
   ];
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -49,16 +73,10 @@ export default function JoinPage() {
 
   return (
     <main className="join-page">
-      <nav className="pledge-nav">
-        <a href="/">Home</a>
-        <a href="/pledge">Take the Pledge</a>
-        <a href="/resources">Resources</a>
-        <a href="/support">Connect with a Community Partner</a>
-      </nav>
 
       <section className="join-hero">
         <p className="eyebrow">#RaiseThemRight</p>
-        <h1>Become a Community Partner</h1>
+        <h1>Community Partners</h1>
         <p>
           Strong homes are built one relationship at a time. Join us as we
           support parents, strengthen communities, and invest in the next
@@ -71,12 +89,9 @@ export default function JoinPage() {
 
         <div className="serve-grid">
           {roles.map((role) => (
-            <div className="serve-card" key={role}>
-              <h3>{role}</h3>
-              <p>
-                Help strengthen homes, encourage families, and support children
-                through your time, experience, prayer, or professional skills.
-              </p>
+            <div className="serve-card" key={role.title}>
+              <h3>{role.title}</h3>
+              <p>{role.description}</p>
             </div>
           ))}
         </div>
@@ -97,7 +112,7 @@ export default function JoinPage() {
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
           <button type="submit" className="button primary" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Become a Community Partner"}
+            {isSubmitting ? "Submitting..." : "Community Partners"}
           </button>
         </form>
       </section>
