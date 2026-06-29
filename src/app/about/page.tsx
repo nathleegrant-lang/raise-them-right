@@ -1,12 +1,6 @@
 export default function AboutPage() {
   return (
     <main className="about-page">
-      <nav className="pledge-nav">
-        <a href="/">Home</a>
-        <a href="/pledge">Take the Pledge</a>
-        <a href="/join">Become a Community Partner</a>
-        <a href="/support">Connect with a Community Partner</a>
-      </nav>
 
       <section className="about-hero">
         <p className="eyebrow">#RaiseThemRight</p>

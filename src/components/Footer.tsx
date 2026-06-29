@@ -10,9 +10,9 @@ export default function Footer() {
           <h3>Explore</h3>
           <p>
           <a href="/">Home</a>
-          <a href="/about">Foundation</a>
-          <a href="/pledge">Pledge</a>
-          <a href="/join">Community Partner</a>
+          <a href="/about">Our Foundation</a>
+          <a href="/pledge">The Pledge</a>
+          <a href="/join">Community Partners</a>
           <a href="/support">Connect</a>
           <a href="/resources">Resources</a></p>
         </div>
