@@ -17,7 +17,7 @@ export default function ThankYouSupportPage() {
         </p>
 
         <p>
-          Remember this: <strong>You are not walking alone.</strong>
+          Remember this. <strong>You are not walking alone.</strong>
         </p>
 
         <p>
