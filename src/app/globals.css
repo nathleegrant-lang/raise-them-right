@@ -153,6 +153,39 @@ img {
   color: #fff;
   padding: 50px 0;
 }
+.hero-slide-image {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1000ms ease, transform 7000ms ease;
+}
+
+.hero-slide-image.active {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.hero-dots {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dots button {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.hero-dots button.active {
+  background: var(--gold);
+}
 
 .eyebrow {
   color: var(--gold-dark);
