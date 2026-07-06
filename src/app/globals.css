@@ -261,6 +261,34 @@ h1 {
   border-color: rgba(11, 29, 58, 0.25);
   background: white;
 }
+.hero-slide-image {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1000ms ease, transform 7000ms ease;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-slide-image.active {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.hero-slide-image.slide-school {
+  object-position: center center;
+}
+
+.hero-slide-image.slide-village {
+  object-position: center center;
+}
+
+.hero-slide-image.slide-mentor {
+  object-position: center center;
+}
+
+.hero-slide-image.slide-prayer {
+  object-position: center center;
+}
 
 /* GENERAL SECTIONS */
 
