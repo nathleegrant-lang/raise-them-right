@@ -14,6 +14,7 @@ const beliefs = [
 const heroSlides = [
   {
     image: "/images/hero-slider/hero-1-main-village.jpg",
+    className: "slide-village",
     eyebrow: "#RaiseThemRight",
     title: "Rebuilding the Global Village",
     description:
@@ -25,6 +26,7 @@ const heroSlides = [
   },
   {
     image: "/images/hero-slider/hero-2-community-mentor.jpg",
+    className: "slide-mentor",
     eyebrow: "It still takes a village",
     title: "Great Communities Invest in Their Children",
     description:
@@ -36,6 +38,7 @@ const heroSlides = [
   },
   {
     image: "/images/hero-slider/hero-3-family-prayer.jpg",
+    className: "slide-family",
     eyebrow: "Faith. Family. Community.",
     title: "Strong Homes Build Strong Nations",
     description:
@@ -47,6 +50,7 @@ const heroSlides = [
   },
     {
     image: "/images/hero-slider/hero-4-school-walk.jpg",
+    className: "slide-school",
     eyebrow: "#RaiseThemRight",
     title: "Every Child Deserves a Village",
     description:
