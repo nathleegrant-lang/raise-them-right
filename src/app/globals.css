@@ -1173,6 +1173,97 @@ h1 {
   margin: 0;
 }
 
+/* ==========================
+   TRUST CENTRE
+========================== */
+
+.trust-page {
+  background: var(--cream);
+}
+
+.trust-hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 120px 24px 70px;
+  text-align: center;
+}
+
+.trust-hero h1 {
+  color: var(--navy);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 1.05;
+  margin: 18px 0 28px;
+}
+
+.trust-intro {
+  max-width: 760px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1.9;
+}
+
+.trust-grid-section {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 24px 90px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.trust-card {
+  background: white;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-icon {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+}
+
+.trust-card h2 {
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+.trust-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.trust-footer-message {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 20px 24px 100px;
+}
+
+.trust-footer-message h2 {
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.trust-footer-message p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ADMIN / MISSION CONTROL */
 
 .mission-page {
