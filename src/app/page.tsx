@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const beliefs = [
   "Every child deserves a strong village.",
@@ -8,35 +11,113 @@ const beliefs = [
   "Technology should strengthen human connection.",
 ];
 
+const heroSlides = [
+  {
+    image: "/images/hero-slider/hero-4-school-walk.jpg",
+    eyebrow: "#RaiseThemRight",
+    title: "Every Child Deserves a Village",
+    description:
+      "Every journey begins with someone who cares enough to walk alongside a child. Strong communities are built one relationship at a time.",
+    primaryLabel: "The Pledge",
+    primaryHref: "/pledge",
+    secondaryLabel: "Our Foundation",
+    secondaryHref: "/about",
+  },
+  {
+    image: "/images/hero-slider/hero-1-main-village.jpg",
+    eyebrow: "#RaiseThemRight",
+    title: "Rebuilding the Global Village",
+    description:
+      "Strengthening the people who raise children through faith, family, community, and meaningful connections.",
+    primaryLabel: "Community Partners",
+    primaryHref: "/join",
+    secondaryLabel: "Learn More",
+    secondaryHref: "/about",
+  },
+  {
+    image: "/images/hero-slider/hero-2-community-mentor.jpg",
+    eyebrow: "It still takes a village",
+    title: "Great Communities Invest in Their Children",
+    description:
+      "Parents, teachers, coaches, mentors, neighbours, and faith communities all help shape the next generation.",
+    primaryLabel: "Community Partners",
+    primaryHref: "/join",
+    secondaryLabel: "Connect",
+    secondaryHref: "/support",
+  },
+  {
+    image: "/images/hero-slider/hero-3-family-prayer.jpg",
+    eyebrow: "Faith. Family. Community.",
+    title: "Strong Homes Build Strong Nations",
+    description:
+      "Love, faith, prayer, and character are first nurtured at home and strengthened by the Global Village.",
+    primaryLabel: "Connect",
+    primaryHref: "/support",
+    secondaryLabel: "Resources",
+    secondaryHref: "/resources",
+  },
+];
+
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentSlide = heroSlides[activeSlide];
+
   return (
     <main>
-      <section id="top" className="hero-section">
+      <section id="top" className="hero-section hero-slider">
         <div className="hero-image-wrap">
-          <Image
-            src="/images/raise-them-right-hero.jpg"
-            alt="A warm community scene with adults and children."
-            fill
-            priority
-            className="hero-image"
-          />
+          {heroSlides.map((slide, index) => (
+            <Image
+              key={slide.image}
+              src={slide.image}
+              alt={slide.title}
+              fill
+              priority={index === 0}
+              className={`hero-image hero-slide-image ${
+                index === activeSlide ? "active" : ""
+              }`}
+            />
+          ))}
+
           <div className="hero-overlay" />
 
           <div className="hero-content">
-            <p className="eyebrow">#RaiseThemRight</p>
-            <h1>
-              Rebuilding the<br />
-              Global Village
-            </h1>
-            <p>
-              Strengthening the people who raise children through faith,
-              family, community, and meaningful connections.
-            </p>
+            <p className="eyebrow">{currentSlide.eyebrow}</p>
+
+            <h1>{currentSlide.title}</h1>
+
+            <p>{currentSlide.description}</p>
 
             <div className="hero-actions">
-              <a href="/pledge" className="button primary">Take the Pledge</a>
-              <a href="/about" className="button secondary">Our Foundation</a>
+              <a href={currentSlide.primaryHref} className="button primary">
+                {currentSlide.primaryLabel}
+              </a>
+
+              <a href={currentSlide.secondaryHref} className="button secondary">
+                {currentSlide.secondaryLabel}
+              </a>
             </div>
+          </div>
+
+          <div className="hero-dots">
+            {heroSlides.map((slide, index) => (
+              <button
+                key={slide.image}
+                type="button"
+                aria-label={`Go to slide ${index + 1}`}
+                className={index === activeSlide ? "active" : ""}
+                onClick={() => setActiveSlide(index)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -58,25 +139,64 @@ export default function Home() {
               Stand with the vision and commit to strengthening the people who
               raise children.
             </p>
-            <a href="/pledge" className="button primary">Take the Pledge</a>
+            <a href="/pledge" className="button primary">
+              Take the Pledge
+            </a>
           </div>
 
           <div className="action-card">
-            <h3>Become a Community Partner</h3>
+            <h3>Community Partners</h3>
             <p>
               Share your encouragement, prayer, mentorship, experience, or
               professional expertise with families seeking connection.
             </p>
-            <a href="/join" className="button primary">Become a Partner</a>
+            <a href="/join" className="button primary">
+              Community Partners
+            </a>
           </div>
 
           <div className="action-card">
-            <h3>Connect with a Community Partner</h3>
+            <h3>Connect</h3>
             <p>
               No family should walk alone. Connect with someone ready to listen,
               encourage, and walk alongside you.
             </p>
-            <a href="/support" className="button primary">Connect Today</a>
+            <a href="/support" className="button primary">
+              Connect
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="village-works-section">
+        <div className="village-works-inner">
+          <p className="eyebrow">How the Village Works</p>
+          <h2>Every connection begins with a thoughtful next step.</h2>
+
+          <div className="village-steps-grid">
+            <div className="village-step-card">
+              <h3>Choose Your Place</h3>
+              <p>
+                Take the pledge, become a Community Partner, or request a
+                connection.
+              </p>
+            </div>
+
+            <div className="village-step-card">
+              <h3>Build Safe Connections</h3>
+              <p>
+                The platform helps introduce families and Community Partners
+                through a thoughtful and privacy-conscious process.
+              </p>
+            </div>
+
+            <div className="village-step-card">
+              <h3>Grow Together</h3>
+              <p>
+                Encourage one another through prayer, mentorship, parenting
+                support, and community.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -139,8 +259,12 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <a href="/join" className="button primary">Become a Community Partner</a>
-            <a href="/support" className="button secondary">Connect with a Partner</a>
+            <a href="/join" className="button primary">
+              Community Partners
+            </a>
+            <a href="/support" className="button secondary">
+              Connect
+            </a>
           </div>
         </div>
 
