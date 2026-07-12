@@ -12,19 +12,7 @@ const beliefs = [
 ];
 
 const heroSlides = [
-  {
-    image: "/images/hero-slider/hero-4-school-walk.jpg",
-    className: "slide-schoolr",
-    eyebrow: "#RaiseThemRight",
-    title: "Every Child Deserves a Village",
-    description:
-      "Every journey begins with someone who cares enough to walk alongside a child. Strong communities are built one relationship at a time.",
-    primaryLabel: "The Pledge",
-    primaryHref: "/pledge",
-    secondaryLabel: "Our Foundation",
-    secondaryHref: "/about",
-  },
-  {
+    {
     image: "/images/hero-slider/hero-1-main-village.jpg",
     className: "slide-village",
     eyebrow: "#RaiseThemRight",
@@ -59,6 +47,18 @@ const heroSlides = [
     primaryHref: "/support",
     secondaryLabel: "Resources",
     secondaryHref: "/resources",
+  },
+  {
+    image: "/images/hero-slider/hero-4-school-walk.jpg",
+    className: "slide-schoolr",
+    eyebrow: "#RaiseThemRight",
+    title: "Every Child Deserves a Village",
+    description:
+      "Every journey begins with someone who cares enough to walk alongside a child. Strong communities are built one relationship at a time.",
+    primaryLabel: "The Pledge",
+    primaryHref: "/pledge",
+    secondaryLabel: "Our Foundation",
+    secondaryHref: "/about",
   },
 ];
 
