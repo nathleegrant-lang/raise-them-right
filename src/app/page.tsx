@@ -86,7 +86,7 @@ export default function Home() {
               alt={slide.title}
               fill
               priority={index === 0}
-              className={`hero-image hero-slide-image ${
+              className={`hero-image hero-slide-image ${slide.className} ${
                 index === activeSlide ? "active" : ""
               }`}
             />
