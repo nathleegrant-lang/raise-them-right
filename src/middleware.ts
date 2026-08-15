@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { ADMIN_ACCESS_COOKIE } from "./lib/adminAuth";
+
+const ADMIN_ACCESS_COOKIE = "rtr_admin_access_token";
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get(ADMIN_ACCESS_COOKIE)?.value;
