@@ -1,8 +1,11 @@
 import { supabaseAdmin } from "../../lib/supabaseAdmin";
+import { requireAdmin } from "../../lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
+  await requireAdmin();
+
   const [
     pledgeCount,
     volunteerCount,
@@ -56,6 +59,10 @@ export default async function AdminPage() {
           <a href="/admin/analytics">Analytics</a>
           <a href="/admin/export">Export</a>
         </nav>
+
+        <form action="/api/admin/logout" method="post">
+          <button className="button secondary" type="submit">Sign Out</button>
+        </form>
 
         <a className="mission-return" href="/">
           Return to Website
