@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+const Required = () => <span style={{ color: "#c62828", marginLeft: "0.2rem" }} aria-hidden="true">*</span>;
+
 export default function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -48,11 +50,14 @@ export default function RegisterPage() {
       return;
     }
 
-    setSuccessMessage(result.message || "Your account has been created.");
+    setSuccessMessage(result.message || "Your account has been created. Please check your email to confirm your address before signing in.");
     form.reset();
     setShowPassword(false);
     setIsSubmitting(false);
   }
+
+  const fieldLabelStyle = { display: "block", fontWeight: 700, marginBottom: "0.35rem" } as const;
+  const fieldWrapStyle = { width: "100%" } as const;
 
   return (
     <main className="pledge-page">
@@ -70,18 +75,30 @@ export default function RegisterPage() {
           <p>
             #RaiseThemRight is an adult community supporting parents and families. Children do not create accounts and are not matched with Community Partners.
           </p>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.95rem" }}>
+            <span style={{ color: "#c62828", fontWeight: 700 }}>*</span> Required fields
+          </p>
         </div>
 
         <form className="pledge-form" onSubmit={handleSubmit}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", width: "100%" }}>
-            <input name="firstName" type="text" placeholder="First Name" autoComplete="given-name" required />
-            <input name="lastName" type="text" placeholder="Last Name" autoComplete="family-name" required />
+            <div style={fieldWrapStyle}>
+              <label htmlFor="firstName" style={fieldLabelStyle}>First Name<Required /></label>
+              <input id="firstName" name="firstName" type="text" placeholder="First Name" autoComplete="given-name" required />
+            </div>
+            <div style={fieldWrapStyle}>
+              <label htmlFor="lastName" style={fieldLabelStyle}>Last Name<Required /></label>
+              <input id="lastName" name="lastName" type="text" placeholder="Last Name" autoComplete="family-name" required />
+            </div>
           </div>
 
-          <input name="email" type="email" placeholder="Email Address" autoComplete="email" required />
+          <div style={fieldWrapStyle}>
+            <label htmlFor="email" style={fieldLabelStyle}>Email Address<Required /></label>
+            <input id="email" name="email" type="email" placeholder="Email Address" autoComplete="email" required />
+          </div>
 
           <fieldset style={{ width: "100%", border: "1px solid #d9d9d9", borderRadius: "12px", padding: "1rem" }}>
-            <legend style={{ padding: "0 0.4rem", fontWeight: 700 }}>I am joining as</legend>
+            <legend style={{ padding: "0 0.4rem", fontWeight: 700 }}>I am joining as<Required /></legend>
             <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", marginBottom: "0.8rem", cursor: "pointer" }}>
               <input name="accountType" type="radio" value="parent" required style={{ width: "auto", marginTop: "0.25rem" }} />
               <span><strong>Parent</strong><br />I am seeking support related to parenting or strengthening my family.</span>
@@ -93,12 +110,24 @@ export default function RegisterPage() {
           </fieldset>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", width: "100%" }}>
-            <input name="country" type="text" placeholder="Country" autoComplete="country-name" />
-            <input name="parishState" type="text" placeholder="Parish / State" autoComplete="address-level1" />
+            <div style={fieldWrapStyle}>
+              <label htmlFor="country" style={fieldLabelStyle}>Country<Required /></label>
+              <input id="country" name="country" type="text" placeholder="Country" autoComplete="country-name" required />
+            </div>
+            <div style={fieldWrapStyle}>
+              <label htmlFor="parishState" style={fieldLabelStyle}>Parish / State</label>
+              <input id="parishState" name="parishState" type="text" placeholder="Parish / State" autoComplete="address-level1" />
+            </div>
           </div>
 
-          <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" autoComplete="new-password" required />
-          <input name="confirmPassword" type={showPassword ? "text" : "password"} placeholder="Confirm Password" autoComplete="new-password" required />
+          <div style={fieldWrapStyle}>
+            <label htmlFor="password" style={fieldLabelStyle}>Password<Required /></label>
+            <input id="password" name="password" type={showPassword ? "text" : "password"} placeholder="Password" autoComplete="new-password" required />
+          </div>
+          <div style={fieldWrapStyle}>
+            <label htmlFor="confirmPassword" style={fieldLabelStyle}>Confirm Password<Required /></label>
+            <input id="confirmPassword" name="confirmPassword" type={showPassword ? "text" : "password"} placeholder="Confirm Password" autoComplete="new-password" required />
+          </div>
 
           <div style={{ width: "100%", display: "flex", justifyContent: "flex-start" }}>
             <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", width: "auto" }}>
@@ -116,11 +145,26 @@ export default function RegisterPage() {
 
           <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", width: "100%", cursor: "pointer" }}>
             <input name="adultConfirmed" type="checkbox" value="yes" required style={{ width: "auto", marginTop: "0.25rem" }} />
-            <span>I confirm that I am an adult and that this account is for me, not for a child.</span>
+            <span>I confirm that I am an adult and that this account is for me, not for a child.<Required /></span>
           </label>
 
           {errorMessage && <p className="form-error">{errorMessage}</p>}
-          {successMessage && <p>{successMessage}</p>}
+          {successMessage && (
+            <div
+              role="status"
+              style={{
+                width: "100%",
+                padding: "1rem",
+                borderRadius: "12px",
+                background: "#eef5ff",
+                border: "1px solid #9fc3ef",
+                color: "#0b3a70",
+              }}
+            >
+              <strong>Account Created ✓</strong>
+              <p style={{ margin: "0.35rem 0 0" }}>{successMessage}</p>
+            </div>
+          )}
 
           <button type="submit" className="button primary" disabled={isSubmitting}>
             {isSubmitting ? "Creating account..." : "Create Account"}
