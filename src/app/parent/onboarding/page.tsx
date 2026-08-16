@@ -8,7 +8,7 @@ export default async function ParentOnboardingPage() {
       <section className="pledge-hero" style={{ textAlign: "center" }}>
         <p className="eyebrow">#RaiseThemRight Community</p>
         <h1 style={{ marginBottom: "0.25rem" }}>Welcome</h1>
-        <p style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", fontWeight: 700, margin: "0 auto 0.75rem", textAlign: "center" }}>
+        <p style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontFamily: '"Segoe Script", "Brush Script MT", cursive', fontWeight: 400, fontStyle: "italic", margin: "0 auto 0.75rem", textAlign: "center" }}>
           {account.first_name}
         </p>
         <p style={{ textAlign: "center" }}>Your Parent account is ready for onboarding.</p>
