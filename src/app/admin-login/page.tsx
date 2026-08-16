@@ -56,14 +56,17 @@ export default function AdminLoginPage() {
             required
           />
 
-          <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer" }}>
-            <input
-              type="checkbox"
-              checked={showPassword}
-              onChange={(event) => setShowPassword(event.target.checked)}
-            />
-            <span>{showPassword ? "Hide password" : "Show password"}</span>
-          </label>
+          <div style={{ width: "100%", display: "flex", justifyContent: "flex-start" }}>
+            <label style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", width: "auto" }}>
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={(event) => setShowPassword(event.target.checked)}
+                style={{ width: "auto", margin: 0 }}
+              />
+              <span>{showPassword ? "Hide password" : "Show password"}</span>
+            </label>
+          </div>
 
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
