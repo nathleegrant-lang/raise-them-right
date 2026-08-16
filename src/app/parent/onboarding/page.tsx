@@ -5,13 +5,13 @@ export default async function ParentOnboardingPage() {
 
   return (
     <main className="pledge-page">
-      <section className="pledge-hero">
+      <section className="pledge-hero" style={{ textAlign: "center" }}>
         <p className="eyebrow">#RaiseThemRight Community</p>
         <h1 style={{ marginBottom: "0.25rem" }}>Welcome</h1>
-        <p style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", fontWeight: 700, margin: "0 0 0.75rem" }}>
+        <p style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", fontWeight: 700, margin: "0 auto 0.75rem", textAlign: "center" }}>
           {account.first_name}
         </p>
-        <p>Your Parent account is ready for onboarding.</p>
+        <p style={{ textAlign: "center" }}>Your Parent account is ready for onboarding.</p>
       </section>
 
       <section className="pledge-card">
