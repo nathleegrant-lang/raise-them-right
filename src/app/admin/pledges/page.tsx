@@ -1,8 +1,11 @@
 import { supabaseAdmin } from "../../../lib/supabaseAdmin";
+import { requireAdmin } from "../../../lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
 export default async function PledgesPage() {
+  await requireAdmin();
+
   const { data: pledges } = await supabaseAdmin
     .from("pledges")
     .select("id, first_name, last_name, email, country, parish_state, created_at")
@@ -24,6 +27,10 @@ export default async function PledgesPage() {
           <a href="/admin/analytics">Analytics</a>
           <a href="/admin/export">Export</a>
         </nav>
+
+        <form action="/api/admin/logout" method="post">
+          <button className="button secondary" type="submit">Sign Out</button>
+        </form>
 
         <a className="mission-return" href="/">
           Return to Website
