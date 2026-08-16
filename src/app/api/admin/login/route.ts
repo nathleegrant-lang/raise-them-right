@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { ADMIN_ACCESS_COOKIE } from "../../../../lib/adminAuth";
+import { ADMIN_ACCESS_COOKIE, isAuthorizedAdmin } from "../../../../lib/adminAuth";
 
 export async function POST(request: NextRequest) {
   const { email, password } = await request.json();
@@ -30,7 +30,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid login." }, { status: 401 });
   }
 
-  if (data.user.app_metadata?.role !== "admin") {
+  if (!(await isAuthorizedAdmin(data.user.id))) {
+    await supabase.auth.signOut();
     return NextResponse.json({ error: "This account is not authorized for Mission Control." }, { status: 403 });
   }
 
