@@ -3,47 +3,10 @@
 import { FormEvent, useEffect, useState } from "react";
 
 const groups = {
-  supportAreas: {
-    title: "What kind of support would be helpful?",
-    options: [
-      ["parenting_guidance", "Parenting guidance"],
-      ["education_learning", "Education & learning support"],
-      ["family_routines", "Family routines & organisation"],
-      ["positive_discipline", "Positive discipline"],
-      ["faith_family", "Faith & family encouragement"],
-      ["community_resources", "Community resources"],
-      ["emotional_encouragement", "Encouragement for me as a parent"],
-    ],
-  },
-  householdStage: {
-    title: "Which broad family stages are relevant?",
-    options: [
-      ["early_childhood", "Early childhood"],
-      ["primary_years", "Primary years"],
-      ["teen_years", "Teen years"],
-      ["young_adult_transition", "Young-adult transition"],
-    ],
-  },
-  preferredSupport: {
-    title: "How would you prefer to receive support?",
-    options: [
-      ["information_resources", "Information & resources"],
-      ["one_to_one_guidance", "One-to-one adult guidance"],
-      ["group_support", "Parent group support"],
-      ["workshops", "Workshops / learning sessions"],
-      ["community_referral", "Referral to a community resource"],
-    ],
-  },
-  availability: {
-    title: "When are you generally available?",
-    options: [
-      ["weekday_mornings", "Weekday mornings"],
-      ["weekday_afternoons", "Weekday afternoons"],
-      ["weekday_evenings", "Weekday evenings"],
-      ["weekends", "Weekends"],
-      ["flexible", "Flexible"],
-    ],
-  },
+  supportAreas: { title: "What kind of support would be helpful?", options: [["parenting_guidance", "Parenting guidance"],["education_learning", "Education & learning support"],["family_routines", "Family routines & organisation"],["positive_discipline", "Positive discipline"],["faith_family", "Faith & family encouragement"],["community_resources", "Community resources"],["emotional_encouragement", "Encouragement for me as a parent"]] },
+  householdStage: { title: "Which broad family stages are relevant?", options: [["early_childhood", "Early childhood"],["primary_years", "Primary years"],["teen_years", "Teen years"],["young_adult_transition", "Young-adult transition"]] },
+  preferredSupport: { title: "How would you prefer to receive support?", options: [["information_resources", "Information & resources"],["one_to_one_guidance", "One-to-one adult guidance"],["group_support", "Parent group support"],["workshops", "Workshops / learning sessions"],["community_referral", "Referral to a community resource"]] },
+  availability: { title: "When are you generally available?", options: [["weekday_mornings", "Weekday mornings"],["weekday_afternoons", "Weekday afternoons"],["weekday_evenings", "Weekday evenings"],["weekends", "Weekends"],["flexible", "Flexible"]] },
 } as const;
 
 type GroupName = keyof typeof groups;
@@ -56,64 +19,29 @@ export default function ParentProfilePage() {
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    fetch("/api/parent/profile")
-      .then((response) => response.json())
-      .then((result) => {
-        if (!result.profile) return;
-        setSelections({
-          supportAreas: result.profile.support_areas || [],
-          householdStage: result.profile.household_stage || [],
-          preferredSupport: result.profile.preferred_support || [],
-          availability: result.profile.availability || [],
-        });
-      })
-      .catch(() => undefined);
-  }, []);
+  useEffect(() => { fetch("/api/parent/profile").then((response) => response.json()).then((result) => { if (!result.profile) return; setSelections({ supportAreas: result.profile.support_areas || [], householdStage: result.profile.household_stage || [], preferredSupport: result.profile.preferred_support || [], availability: result.profile.availability || [] }); }).catch(() => undefined); }, []);
 
-  function toggle(group: GroupName, value: string) {
-    setSelections((current) => ({
-      ...current,
-      [group]: current[group].includes(value)
-        ? current[group].filter((item) => item !== value)
-        : [...current[group], value],
-    }));
-  }
+  function toggle(group: GroupName, value: string) { setSelections((current) => ({ ...current, [group]: current[group].includes(value) ? current[group].filter((item) => item !== value) : [...current[group], value] })); }
 
   async function saveProfile(event: FormEvent) {
-    event.preventDefault();
-    setMessage("");
-    setError("");
-    setSaving(true);
-
-    const response = await fetch("/api/parent/profile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selections),
-    });
-    const result = await response.json();
-    setSaving(false);
-
-    if (!response.ok) {
-      setError(result.error || "Unable to save your profile.");
-      return;
-    }
+    event.preventDefault(); setMessage(""); setError(""); setSaving(true);
+    const response = await fetch("/api/parent/profile", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(selections) });
+    const result = await response.json(); setSaving(false);
+    if (!response.ok) { setError(result.error || "Unable to save your profile."); return; }
     setMessage(result.message || "Your Parent profile has been saved.");
   }
 
   return (
     <main className="pledge-page">
       <section className="pledge-hero" style={{ textAlign: "center" }}>
-        <p className="eyebrow">#RaiseThemRight Community</p>
-        <h1>Parent Profile</h1>
-        <p>Help us understand the kind of adult-to-adult support that may be useful to your family.</p>
+        <p className="eyebrow">#RaiseThemRight Community</p><h1>Parent Profile</h1><p>Help us understand the kind of adult-to-adult support that may be useful to your family.</p>
       </section>
 
       <section className="pledge-card">
-        <div style={{ padding: "1rem", borderRadius: "12px", background: "#f7f4eb", marginBottom: "1.5rem" }}>
-          <strong>Protect your child's privacy.</strong>
-          <p style={{ margin: "0.4rem 0 0" }}>
-            Do not provide a child's name, photograph, school, exact age, address, telephone number, or other identifying information. These questions use broad categories on purpose.
+        <div role="note" style={{ padding: "1.15rem 1.25rem", borderRadius: "12px", background: "#fff8e7", border: "1px solid #f2b632", borderLeft: "5px solid #f2b632", marginBottom: "1.5rem", color: "#13213a" }}>
+          <strong style={{ display: "block", fontSize: "1.05rem" }}>A quick privacy reminder</strong>
+          <p style={{ margin: "0.4rem 0 0", lineHeight: 1.5 }}>
+            Please keep details about your child private. Do not include a child's name, photograph, school, exact age, address, telephone number, or other identifying information. We use broad categories here on purpose to help protect your family.
           </p>
         </div>
 
@@ -122,19 +50,12 @@ export default function ParentProfilePage() {
             <fieldset key={groupName} style={{ width: "100%", border: "1px solid #d9d9d9", borderRadius: "12px", padding: "1rem" }}>
               <legend style={{ padding: "0 0.4rem", fontWeight: 700 }}>{group.title}</legend>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "0.75rem 1.25rem" }}>
-                {group.options.map(([value, label]) => (
-                  <label key={value} style={{ display: "flex", alignItems: "flex-start", gap: "0.55rem", cursor: "pointer" }}>
-                    <input type="checkbox" checked={selections[groupName].includes(value)} onChange={() => toggle(groupName, value)} style={{ width: "auto", marginTop: "0.2rem" }} />
-                    <span>{label}</span>
-                  </label>
-                ))}
+                {group.options.map(([value, label]) => <label key={value} style={{ display: "flex", alignItems: "flex-start", gap: "0.55rem", cursor: "pointer" }}><input type="checkbox" checked={selections[groupName].includes(value)} onChange={() => toggle(groupName, value)} style={{ width: "auto", marginTop: "0.2rem" }} /><span>{label}</span></label>)}
               </div>
             </fieldset>
           ))}
-
           {error && <p className="form-error">{error}</p>}
           {message && <div role="status" style={{ width: "100%", padding: "1rem", borderRadius: "12px", background: "#eef5ff", border: "1px solid #9fc3ef", color: "#0b3a70" }}><strong>Profile Saved ✓</strong><p style={{ margin: "0.35rem 0 0" }}>{message}</p></div>}
-
           <button type="submit" className="button primary" disabled={saving}>{saving ? "Saving..." : "Save Parent Profile"}</button>
         </form>
       </section>
