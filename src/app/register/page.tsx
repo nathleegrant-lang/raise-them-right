@@ -99,14 +99,16 @@ export default function RegisterPage() {
 
           <fieldset style={{ width: "100%", border: "1px solid #d9d9d9", borderRadius: "12px", padding: "1rem" }}>
             <legend style={{ padding: "0 0.4rem", fontWeight: 700 }}>I am joining as<Required /></legend>
-            <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", marginBottom: "0.8rem", cursor: "pointer" }}>
-              <input name="accountType" type="radio" value="parent" required style={{ width: "auto", marginTop: "0.25rem" }} />
-              <span><strong>Parent</strong><br />I am seeking support related to parenting or strengthening my family.</span>
-            </label>
-            <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
-              <input name="accountType" type="radio" value="community_partner" required style={{ width: "auto", marginTop: "0.25rem" }} />
-              <span><strong>Community Partner</strong><br />I want to offer appropriate support to parents and families.</span>
-            </label>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1rem" }}>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
+                <input name="accountType" type="radio" value="parent" required style={{ width: "auto", marginTop: "0.25rem" }} />
+                <span><strong>Parent</strong><br />I am seeking support related to parenting or strengthening my family.</span>
+              </label>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
+                <input name="accountType" type="radio" value="community_partner" required style={{ width: "auto", marginTop: "0.25rem" }} />
+                <span><strong>Community Partner</strong><br />I want to offer appropriate support to parents and families.</span>
+              </label>
+            </div>
           </fieldset>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", width: "100%" }}>
