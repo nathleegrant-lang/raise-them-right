@@ -24,12 +24,16 @@ export async function middleware(request: NextRequest) {
 
   const { data, error } = await supabase.auth.getUser(token);
 
-  if (error || !data.user || data.user.app_metadata?.role !== "admin") {
+  if (error || !data.user) {
     const response = NextResponse.redirect(new URL("/admin-login", request.url));
     response.cookies.delete(ADMIN_ACCESS_COOKIE);
     return response;
   }
 
+  // Middleware verifies that the request has a valid Supabase session.
+  // Server-rendered admin pages perform the authoritative administrator
+  // authorization check against the protected admin_authorizations registry
+  // before any privileged Mission Control data is read.
   return NextResponse.next();
 }
 
