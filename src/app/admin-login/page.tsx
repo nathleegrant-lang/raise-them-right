@@ -7,6 +7,7 @@ export default function AdminLoginPage() {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,7 +48,22 @@ export default function AdminLoginPage() {
         <h2>Admin Sign In</h2>
         <form className="pledge-form" onSubmit={handleSubmit}>
           <input name="email" type="email" placeholder="Admin Email" autoComplete="email" required />
-          <input name="password" type="password" placeholder="Password" autoComplete="current-password" required />
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            autoComplete="current-password"
+            required
+          />
+
+          <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer" }}>
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={(event) => setShowPassword(event.target.checked)}
+            />
+            <span>{showPassword ? "Hide password" : "Show password"}</span>
+          </label>
 
           {errorMessage && <p className="form-error">{errorMessage}</p>}
 
