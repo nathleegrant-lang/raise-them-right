@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { supabaseAdmin } from "../../../../lib/supabaseAdmin";
 
 const ALLOWED_ACCOUNT_TYPES = new Set(["parent", "community_partner"]);
+const MEMBER_CONFIRMATION_REDIRECT = "https://raise-them-right.vercel.app/";
 
 function cleanText(value: unknown, maxLength = 120) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -56,6 +57,9 @@ export async function POST(request: NextRequest) {
   const { data: signUpData, error: signUpError } = await authClient.auth.signUp({
     email,
     password,
+    options: {
+      emailRedirectTo: MEMBER_CONFIRMATION_REDIRECT,
+    },
   });
 
   if (signUpError || !signUpData.user) {
