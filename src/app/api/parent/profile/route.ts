@@ -17,7 +17,12 @@ const ALLOWED_AVAILABILITY = new Set(["weekday_mornings", "weekday_afternoons", 
 
 function safeSelection(value: unknown, allowed: Set<string>) {
   if (!Array.isArray(value)) return [];
-  return [...new Set(value.filter((item): item is string => typeof item === "string" && allowed.has(item)))];
+
+  const filtered = value.filter(
+    (item): item is string => typeof item === "string" && allowed.has(item)
+  );
+
+  return filtered.filter((item, index) => filtered.indexOf(item) === index);
 }
 
 async function requireParent(request: NextRequest) {
