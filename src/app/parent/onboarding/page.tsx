@@ -7,7 +7,10 @@ export default async function ParentOnboardingPage() {
     <main className="pledge-page">
       <section className="pledge-hero">
         <p className="eyebrow">#RaiseThemRight Community</p>
-        <h1>Welcome, {account.first_name}.</h1>
+        <h1 style={{ marginBottom: "0.25rem" }}>Welcome</h1>
+        <p style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", fontWeight: 700, margin: "0 0 0.75rem" }}>
+          {account.first_name}
+        </p>
         <p>Your Parent account is ready for onboarding.</p>
       </section>
 
