@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import MemberSignOutButton from "../../../components/MemberSignOutButton";
+import MemberSignOut from "../../../components/MemberSignOut";
 
 const groups = {
   supportAreas: { title: "What kinds of support can you offer parents and families?", options: [["parenting_guidance","Parenting guidance"],["education_learning","Education & learning support"],["family_routines","Family routines & organisation"],["faith_family","Faith & family encouragement"],["community_resources","Community resources"],["career_life_skills","Career & life skills"],["emotional_encouragement","Adult encouragement & listening"]] },
@@ -23,7 +23,7 @@ export default function CommunityPartnerProfileClient() {
   return <main className="pledge-page">
     <section className="pledge-hero" style={{ textAlign: "center" }}><p className="eyebrow">#RaiseThemRight Community</p><h1>Community Partner Profile</h1><p>Tell us how you can appropriately support parents and families.</p></section>
     <section className="pledge-card">
-      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}><MemberSignOutButton /></div>
+      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}><MemberSignOut /></div>
       <div role="note" style={{ padding: "1.15rem 1.25rem", borderRadius: "12px", background: "#fff8e7", border: "1px solid #f2b632", borderLeft: "5px solid #f2b632", marginBottom: "1.5rem", color: "#13213a" }}><strong style={{ display: "block", fontSize: "1.05rem" }}>A quick safety reminder</strong><p style={{ margin: "0.4rem 0 0", lineHeight: 1.5 }}>Community Partners support parents and families. Please do not request or enter a child's name, photograph, school, exact age, address, telephone number, or other identifying information. #RaiseThemRight does not independently match Community Partners with children.</p></div>
       <form className="pledge-form" onSubmit={save}>
         {(Object.entries(groups) as [GroupName,(typeof groups)[GroupName]][]).map(([name, group]) => <fieldset key={name} style={{ width: "100%", border: "1px solid #d9d9d9", borderRadius: "12px", padding: "1rem" }}><legend style={{ padding: "0 0.4rem", fontWeight: 700 }}>{group.title}</legend><div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "0.75rem 1.25rem" }}>{group.options.map(([value,label]) => <label key={value} style={{ display: "flex", gap: "0.55rem", cursor: "pointer" }}><input type="checkbox" checked={selections[name].includes(value)} onChange={() => toggle(name,value)} style={{ width: "auto" }} /><span>{label}</span></label>)}</div></fieldset>)}
