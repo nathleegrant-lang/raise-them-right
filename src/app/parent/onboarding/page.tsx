@@ -1,8 +1,23 @@
+import Link from "next/link";
 import MemberSignOut from "../../../components/MemberSignOut";
 import { requireMember } from "../../../lib/memberAuth";
+import { supabaseAdmin } from "../../../lib/supabaseAdmin";
 
 export default async function ParentOnboardingPage() {
-  const { account } = await requireMember("parent");
+  const { account, user } = await requireMember("parent");
+  const { data: profile } = await supabaseAdmin
+    .from("parent_profiles")
+    .select("profile_complete")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  const profileComplete = Boolean(profile?.profile_complete);
+
+  const cardStyle = {
+    border: "1px solid rgba(11, 29, 58, 0.14)",
+    borderRadius: "16px",
+    padding: "1.25rem",
+    background: "#fffdf7",
+  } as const;
 
   return (
     <main className="pledge-page">
@@ -12,20 +27,41 @@ export default async function ParentOnboardingPage() {
         <p style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontFamily: '"Segoe Script", "Brush Script MT", cursive', fontWeight: 400, fontStyle: "italic", margin: "0 auto 0.75rem", textAlign: "center" }}>
           {account.first_name}
         </p>
-        <p style={{ textAlign: "center" }}>Your Parent account is ready for onboarding.</p>
+        <p style={{ textAlign: "center" }}>Your Parent community home.</p>
       </section>
 
       <section className="pledge-card">
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}><MemberSignOut /></div>
-        <h2>Parent Onboarding</h2>
-        <p>
-          This is the protected Parent starting point. The next Phase 1 unit will build your Parent profile and support-request journey here.
-        </p>
-        <div style={{ marginTop: "1rem", padding: "1rem", borderRadius: "12px", background: "#f7f4eb" }}>
-          <strong>Child privacy remains protected.</strong>
-          <p style={{ margin: "0.4rem 0 0" }}>
-            Do not enter a child's full name, photograph, school, exact age, home address, telephone number, or other identifying information.
-          </p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+          <div><h2 style={{ marginBottom: "0.25rem" }}>Parent Home</h2><p style={{ margin: 0 }}>Manage your profile and prepare for the support journey.</p></div>
+          <MemberSignOut />
+        </div>
+
+        <div role="note" style={{ padding: "1.15rem 1.25rem", borderRadius: "12px", background: "#fff8e7", border: "1px solid #f2b632", borderLeft: "5px solid #f2b632", marginBottom: "1.5rem", color: "#13213a" }}>
+          <strong style={{ display: "block", fontSize: "1.05rem" }}>A quick privacy reminder</strong>
+          <p style={{ margin: "0.4rem 0 0", lineHeight: 1.5 }}>Keep child-identifying information private throughout #RaiseThemRight. The platform is designed around adult-to-adult support and broad family needs.</p>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem" }}>
+          <div style={cardStyle}>
+            <p className="eyebrow">MY PROFILE</p>
+            <h3>{profileComplete ? "Profile ready" : "Complete your profile"}</h3>
+            <p>{profileComplete ? "Review or update the kinds of support that may be useful to your family." : "Tell us about your broad support needs and preferences without entering child-identifying information."}</p>
+            <Link href="/parent/profile" className="button primary">{profileComplete ? "View My Profile" : "Complete My Profile"}</Link>
+          </div>
+
+          <div style={cardStyle}>
+            <p className="eyebrow">SUPPORT</p>
+            <h3>Request Support</h3>
+            <p>The safe Parent support-request journey is the next functional unit. It will build from your profile without exposing child-identifying details.</p>
+            <span style={{ display: "inline-block", fontWeight: 700, color: "#5f6b7a" }}>Coming next</span>
+          </div>
+
+          <div style={cardStyle}>
+            <p className="eyebrow">RESOURCES</p>
+            <h3>Parent Resources</h3>
+            <p>Guides, reflections and practical family resources will be available here as the community resource library grows.</p>
+            <span style={{ display: "inline-block", fontWeight: 700, color: "#5f6b7a" }}>Coming soon</span>
+          </div>
         </div>
       </section>
     </main>
