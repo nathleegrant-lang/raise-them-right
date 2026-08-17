@@ -6,7 +6,7 @@ import MemberSignOut from "../../../components/MemberSignOut";
 const groups = {
   supportAreas: { title: "What kinds of support can you offer parents and families?", options: [["parenting_guidance","Parenting guidance"],["education_learning","Education & learning support"],["family_routines","Family routines & organisation"],["faith_family","Faith & family encouragement"],["community_resources","Community resources"],["career_life_skills","Career & life skills"],["emotional_encouragement","Adult encouragement & listening"]] },
   supportFormats: { title: "How can you offer support?", options: [["one_to_one_adult_guidance","One-to-one adult guidance"],["parent_groups","Parent group support"],["workshops","Workshops / learning sessions"],["information_resources","Information & resources"],["community_referral","Community referrals"]] },
-  serviceScope: { title: "Where can you generally offer support?", options: [["online","Online"],["local_community","Local community"],["parish_state","Across my parish / state"],["national","Nationally"]] },
+  serviceScope: { title: "Where can you generally offer support?", options: [["online","Online"],["local_community","Local community"],["parish_state","Within my parish / state"],["national","Nationally"]] },
   availability: { title: "When are you generally available?", options: [["weekday_mornings","Weekday mornings"],["weekday_afternoons","Weekday afternoons"],["weekday_evenings","Weekday evenings"],["weekends","Weekends"],["flexible","Flexible"]] },
 } as const;
 type GroupName = keyof typeof groups;
