@@ -6,7 +6,7 @@ import { supabaseAdmin } from "../../../../../lib/supabaseAdmin";
 const BUCKET = "verification-evidence";
 const MAX_BYTES = 10 * 1024 * 1024;
 const TYPES: Record<string,string> = { "image/jpeg":"jpg", "image/png":"png", "application/pdf":"pdf" };
-const DOCUMENT_TYPES = new Set(["certified_id","verification_photo"]);
+const DOCUMENT_TYPES = new Set(["certified_id","verification_photo","reference_letter"]);
 
 async function requirePartner(request: NextRequest) {
  const token=request.cookies.get(MEMBER_ACCESS_COOKIE)?.value;
@@ -37,5 +37,6 @@ export async function POST(request:NextRequest){
  const {error:insertError}=await supabaseAdmin.from("community_partner_verification_documents").insert({user_id:member.user.id,document_type:documentType,storage_path:path,original_filename:file.name.slice(0,180),mime_type:file.type,file_size_bytes:file.size,is_current:true});
  if(insertError){await supabaseAdmin.storage.from(BUCKET).remove([path]);return NextResponse.json({error:"Unable to record the verification evidence."},{status:500});}
  if(oldDocs?.length){await supabaseAdmin.from("community_partner_verification_documents").update({is_current:false}).in("id",oldDocs.map(d=>d.id));}
- return NextResponse.json({ok:true,message:documentType==="certified_id"?"Certified identification uploaded securely.":"Verification photo uploaded securely."});
+ const messages:Record<string,string>={certified_id:"Certified identification uploaded securely.",verification_photo:"Verification photo uploaded securely.",reference_letter:"Reference letter uploaded securely."};
+ return NextResponse.json({ok:true,message:messages[documentType]});
 }
