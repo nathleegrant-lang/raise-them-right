@@ -10,6 +10,7 @@ export default async function AdminPage() {
     pledgeCount,
     volunteerCount,
     supportCount,
+    pendingVerificationCount,
     recentPledges,
     recentVolunteers,
     recentSupport,
@@ -17,6 +18,7 @@ export default async function AdminPage() {
     supabaseAdmin.from("pledges").select("*", { count: "exact", head: true }),
     supabaseAdmin.from("volunteers").select("*", { count: "exact", head: true }),
     supabaseAdmin.from("support_requests").select("*", { count: "exact", head: true }),
+    supabaseAdmin.from("community_partner_profiles").select("user_id", { count: "exact", head: true }).eq("verification_status", "pending"),
 
     supabaseAdmin
       .from("pledges")
@@ -53,6 +55,7 @@ export default async function AdminPage() {
 
         <nav className="mission-nav">
           <a href="/admin">Dashboard</a>
+          <a href="/admin/community-verifications">Partner Verification{pendingVerificationCount.count ? ` (${pendingVerificationCount.count})` : ""}</a>
           <a href="/admin/pledges">Pledges</a>
           <a href="/admin/volunteers">Community Partners</a>
           <a href="/admin/support">Connection Requests</a>
