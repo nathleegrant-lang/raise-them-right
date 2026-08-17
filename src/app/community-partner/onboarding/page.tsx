@@ -1,3 +1,4 @@
+import MemberSignOut from "../../../components/MemberSignOut";
 import { requireMember } from "../../../lib/memberAuth";
 
 export default async function CommunityPartnerOnboardingPage() {
@@ -15,6 +16,7 @@ export default async function CommunityPartnerOnboardingPage() {
       </section>
 
       <section className="pledge-card">
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}><MemberSignOut /></div>
         <h2>Community Partner Onboarding</h2>
         <p>
           This is the protected Community Partner starting point. The next Phase 1 unit will build your support profile, service area, availability and verification journey here.
