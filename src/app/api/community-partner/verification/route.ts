@@ -7,6 +7,25 @@ async function partner(request: NextRequest){const token=request.cookies.get(MEM
 function text(value: unknown, max = 180){return typeof value === "string" ? value.trim().slice(0,max) : "";}
 function recentDate(value:string){if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;const date=new Date(`${value}T00:00:00Z`);if(Number.isNaN(date.getTime()))return false;const now=new Date();const sixMonthsAgo=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()-6,now.getUTCDate()));return date<=now&&date>=sixMonthsAgo;}
 
+export async function GET(request:NextRequest){
+ const member=await partner(request); if(!member)return NextResponse.json({error:"Community Partner access required."},{status:403});
+ const {data,error}=await supabaseAdmin.from("community_partner_profiles").select("verification_application_role,verification_application_affiliation,verification_identity_certifier_type,verification_identity_certifier_name,verification_certified_date,verification_reference_name,verification_reference_contact,verification_reference_relationship,verification_reference_letter_date,verification_credentials_details,verification_safeguarding_agreed").eq("user_id",member.user.id).maybeSingle();
+ if(error)return NextResponse.json({error:"Unable to load your saved verification application."},{status:500});
+ return NextResponse.json({application:{
+  role:data?.verification_application_role||"",
+  affiliation:data?.verification_application_affiliation||"",
+  certifierType:data?.verification_identity_certifier_type||"",
+  certifierName:data?.verification_identity_certifier_name||"",
+  certifiedDate:data?.verification_certified_date||"",
+  referenceName:data?.verification_reference_name||"",
+  referenceContact:data?.verification_reference_contact||"",
+  referenceRelationship:data?.verification_reference_relationship||"",
+  referenceLetterDate:data?.verification_reference_letter_date||"",
+  credentials:data?.verification_credentials_details||"",
+  safeguardingAgreed:data?.verification_safeguarding_agreed===true
+ }});
+}
+
 export async function POST(request:NextRequest){
  const member=await partner(request); if(!member)return NextResponse.json({error:"Community Partner access required."},{status:403});
  let body:Record<string,unknown>; try{body=await request.json();}catch{return NextResponse.json({error:"Invalid verification application."},{status:400});}
