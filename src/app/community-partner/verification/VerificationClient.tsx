@@ -3,29 +3,18 @@ import {FormEvent,useEffect,useState} from "react";
 import MemberSignOut from "../../../components/MemberSignOut";
 
 const certifiers=[
- ["justice_of_peace","Justice of the Peace"],
- ["attorney_notary","Attorney-at-Law / Notary Public"],
- ["medical_doctor","Medical Doctor"],
- ["gazetted_police_officer","Gazetted Police Officer"],
- ["school_principal","School / Tertiary Institution Principal"],
- ["bank_credit_union_manager","Bank / Credit Union Manager"],
- ["marriage_officer_minister","Marriage Officer / Authorised Minister of Religion"],
- ["clerk_of_courts","Clerk of Courts"],
- ["senior_public_officer","Senior Public Officer"],
- ["jamaican_consular_officer","Jamaican Consular Officer"]
+ ["justice_of_peace","Justice of the Peace"],["attorney_notary","Attorney-at-Law / Notary Public"],["medical_doctor","Medical Doctor"],["gazetted_police_officer","Gazetted Police Officer"],["school_principal","School / Tertiary Institution Principal"],["bank_credit_union_manager","Bank / Credit Union Manager"],["marriage_officer_minister","Marriage Officer / Authorised Minister of Religion"],["clerk_of_courts","Clerk of Courts"],["senior_public_officer","Senior Public Officer"],["jamaican_consular_officer","Jamaican Consular Officer"]
 ] as const;
-
 type Doc={document_type:string;original_filename:string;uploaded_at:string};
-export default function VerificationClient({status}:{status:string}){
+export default function VerificationClient({status,currentStandard}:{status:string;currentStandard:boolean}){
  const [current,setCurrent]=useState(status);const [documents,setDocuments]=useState<Doc[]>([]);const [saving,setSaving]=useState(false);const [uploading,setUploading]=useState("");const [error,setError]=useState("");const [message,setMessage]=useState("");
  const [form,setForm]=useState({role:"",affiliation:"",certifierType:"",certifierName:"",certifiedDate:"",referenceName:"",referenceContact:"",credentials:"",safeguardingAgreed:false});
- const needsUpgrade=current==="verified";
+ const needsUpgrade=current==="verified"&&!currentStandard;
  useEffect(()=>{fetch("/api/community-partner/verification/evidence").then(r=>r.json()).then(v=>setDocuments(v.documents||[])).catch(()=>undefined);},[]);
  function change(name:string,value:string|boolean){setForm(v=>({...v,[name]:value}));}
  async function upload(documentType:string,file:File|null){if(!file)return;setUploading(documentType);setError("");setMessage("");const data=new FormData();data.append("documentType",documentType);data.append("file",file);const r=await fetch("/api/community-partner/verification/evidence",{method:"POST",body:data});const result=await r.json();setUploading("");if(!r.ok){setError(result.error||"Unable to upload verification evidence.");return;}setMessage(result.message);const refreshed=await fetch("/api/community-partner/verification/evidence").then(x=>x.json());setDocuments(refreshed.documents||[]);}
  async function submit(e:FormEvent){e.preventDefault();setSaving(true);setError("");setMessage("");const r=await fetch("/api/community-partner/verification",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(form)});const result=await r.json();setSaving(false);if(!r.ok){setError(result.error||"Unable to submit verification application.");return;}setCurrent("pending");setMessage(result.message);}
- const hasId=documents.some(d=>d.document_type==="certified_id");const hasPhoto=documents.some(d=>d.document_type==="verification_photo");
- const showForm=current==="not_started"||current==="declined"||needsUpgrade;
+ const hasId=documents.some(d=>d.document_type==="certified_id");const hasPhoto=documents.some(d=>d.document_type==="verification_photo");const showForm=current==="not_started"||current==="declined"||needsUpgrade;
  return <main className="pledge-page"><section className="pledge-hero" style={{textAlign:"center"}}><p className="eyebrow">#RaiseThemRight Community</p><h1>Community Partner Verification</h1><p>Build trust through identity evidence, safeguarding and adult references.</p></section><section className="pledge-card"><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:"1rem",flexWrap:"wrap",marginBottom:"1rem"}}><a href="/community-partner/onboarding" style={{fontWeight:700,color:"#0b1d3a"}}>← Community Partner Home</a><MemberSignOut/></div>
  <div role="note" style={{padding:"1.15rem 1.25rem",borderRadius:"12px",background:"#fff8e7",border:"1px solid #f2b632",borderLeft:"5px solid #f2b632",marginBottom:"1.5rem",color:"#13213a"}}><strong style={{display:"block",fontSize:"1.05rem"}}>Your evidence stays private</strong><p style={{margin:".4rem 0 0"}}>Certified ID and the private verification photo are reviewed only for verification. They are not public profile images and are not shared with Parents or other Community Partners.</p></div>
  {current==="pending"&&<div style={{padding:"1.25rem",border:"1px solid #9fc3ef",background:"#eef5ff",borderRadius:"14px"}}><h2>Pending review</h2><p>Your strengthened verification application is with Mission Control. Support opportunities remain unavailable until the review is completed.</p></div>}
