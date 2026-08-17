@@ -1,3 +1,4 @@
+import MemberSignOut from "../../../components/MemberSignOut";
 import { requireMember } from "../../../lib/memberAuth";
 
 export default async function ParentOnboardingPage() {
@@ -15,6 +16,7 @@ export default async function ParentOnboardingPage() {
       </section>
 
       <section className="pledge-card">
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}><MemberSignOut /></div>
         <h2>Parent Onboarding</h2>
         <p>
           This is the protected Parent starting point. The next Phase 1 unit will build your Parent profile and support-request journey here.
