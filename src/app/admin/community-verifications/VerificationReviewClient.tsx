@@ -1,29 +1,6 @@
 "use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
-export default function VerificationReviewClient({ userId }: { userId: string }) {
-  const router = useRouter();
-  const [note, setNote] = useState("");
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
-
-  async function decide(decision: "verified" | "declined") {
-    setSaving(true); setError("");
-    const response = await fetch(`/api/admin/community-verifications/${userId}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision, note }) });
-    const result = await response.json(); setSaving(false);
-    if (!response.ok) { setError(result.error || "Unable to save verification decision."); return; }
-    router.refresh();
-  }
-
-  return <div style={{marginTop:"1rem"}}>
-    <label style={{display:"block",fontWeight:700,marginBottom:".4rem"}}>Admin note <span style={{fontWeight:400,color:"#667085"}}>(optional)</span></label>
-    <textarea value={note} onChange={e=>setNote(e.target.value)} maxLength={500} rows={3} placeholder="Record a brief adult-focused verification note." style={{width:"100%",padding:".8rem",border:"1px solid #cfd4dc",borderRadius:"10px",resize:"vertical"}} />
-    {error && <p style={{color:"#b42318",fontWeight:700}}>{error}</p>}
-    <div style={{display:"flex",gap:".75rem",flexWrap:"wrap",marginTop:".75rem"}}>
-      <button type="button" className="button primary" disabled={saving} onClick={()=>decide("verified")}>{saving?"Saving...":"Approve Verification"}</button>
-      <button type="button" className="button secondary" disabled={saving} onClick={()=>decide("declined")}>Decline</button>
-    </div>
-  </div>;
-}
+import {useState} from "react";import {useRouter} from "next/navigation";
+type Evidence={certifiedId:boolean;photo:boolean;referenceLetter:boolean;safeguarding:boolean};
+export default function VerificationReviewClient({userId,evidence}:{userId:string;evidence:Evidence}){const router=useRouter();const [note,setNote]=useState("");const [saving,setSaving]=useState(false);const [error,setError]=useState("");const [checks,setChecks]=useState({identity:false,photo:false,contact:false,reference:false,referee:false,credentials:false});const requiredEvidence=evidence.certifiedId&&evidence.photo&&evidence.referenceLetter&&evidence.safeguarding;const complete=requiredEvidence&&checks.identity&&checks.photo&&checks.contact&&checks.reference&&checks.referee&&checks.credentials;
+function toggle(k:keyof typeof checks){setChecks(v=>({...v,[k]:!v[k]}));}async function decide(decision:"verified"|"declined"){setSaving(true);setError("");const r=await fetch(`/api/admin/community-verifications/${userId}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({decision,note,checks})});const result=await r.json();setSaving(false);if(!r.ok){setError(result.error||"Unable to save verification decision.");return;}router.refresh();}
+const items:[keyof typeof checks,string][]=[["identity","Certified ID reviewed and identity evidence is acceptable"],["photo","Verification photo reasonably corresponds with identity evidence"],["contact","Applicant contact information confirmed"],["reference","Reference letter reviewed"],["referee","Referee independently confirmed"],["credentials","Credentials / affiliation reviewed, or confirmed not applicable"]];return <div style={{marginTop:"1.25rem",padding:"1rem",border:"1px solid #d9d9d9",borderRadius:"12px"}}><p className="eyebrow">MISSION CONTROL CHECKLIST</p><h3 style={{marginTop:0}}>Required verification checks</h3>{!requiredEvidence&&<p style={{color:"#b42318",fontWeight:700}}>Required applicant evidence is incomplete. Approval is locked.</p>}<div style={{display:"grid",gap:".65rem"}}>{items.map(([k,label])=><label key={k} style={{display:"flex",gap:".65rem",alignItems:"flex-start",fontWeight:600}}><input type="checkbox" checked={checks[k]} onChange={()=>toggle(k)} style={{width:"auto",marginTop:".2rem"}}/><span>{label}</span></label>)}</div><label style={{display:"block",fontWeight:700,marginTop:"1rem"}}>Admin note <span style={{fontWeight:400,color:"#667085"}}>(optional)</span><textarea value={note} onChange={e=>setNote(e.target.value)} maxLength={500} rows={3} placeholder="Record the verification outcome or follow-up performed." style={{width:"100%",padding:".8rem",border:"1px solid #cfd4dc",borderRadius:"10px",resize:"vertical",marginTop:".4rem"}}/></label>{error&&<p style={{color:"#b42318",fontWeight:700}}>{error}</p>}<div style={{display:"flex",gap:".75rem",flexWrap:"wrap",marginTop:".75rem"}}><button type="button" className="button primary" disabled={saving||!complete} onClick={()=>decide("verified")}>{saving?"Saving...":"Approve Verification"}</button><button type="button" className="button secondary" disabled={saving} onClick={()=>decide("declined")}>Decline</button></div>{!complete&&<p style={{fontSize:".88rem",color:"#667085"}}>Complete every required check before approval becomes available.</p>}</div>}
