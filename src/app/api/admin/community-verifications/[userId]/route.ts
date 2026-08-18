@@ -1,31 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-import { ADMIN_ACCESS_COOKIE, isAuthorizedAdmin } from "../../../../../lib/adminAuth";
-import { supabaseAdmin } from "../../../../../lib/supabaseAdmin";
-
-async function requireAdminRequest(request: NextRequest) {
-  const token = request.cookies.get(ADMIN_ACCESS_COOKIE)?.value;
-  if (!token) return null;
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
-  const { data, error } = await supabase.auth.getUser(token);
-  if (error || !data.user || !(await isAuthorizedAdmin(data.user.id))) return null;
-  return data.user;
-}
-
-export async function POST(request: NextRequest, { params }: { params: { userId: string } }) {
-  const admin = await requireAdminRequest(request);
-  if (!admin) return NextResponse.json({ error: "Admin access required." }, { status: 403 });
-  let body: Record<string, unknown>;
-  try { body = await request.json(); } catch { return NextResponse.json({ error: "Invalid review request." }, { status: 400 }); }
-  const decision = body.decision === "verified" ? "verified" : body.decision === "declined" ? "declined" : null;
-  const note = typeof body.note === "string" ? body.note.trim().slice(0, 500) : "";
-  if (!decision) return NextResponse.json({ error: "Choose approve or decline." }, { status: 400 });
-
-  const { data: profile, error: loadError } = await supabaseAdmin.from("community_partner_profiles").select("verification_status").eq("user_id", params.userId).maybeSingle();
-  if (loadError || !profile) return NextResponse.json({ error: "Community Partner profile not found." }, { status: 404 });
-  if (profile.verification_status !== "pending") return NextResponse.json({ error: "Only pending verification requests can be reviewed." }, { status: 409 });
-
-  const { error } = await supabaseAdmin.from("community_partner_profiles").update({ verification_status: decision, verification_reviewed_at: new Date().toISOString(), verification_reviewed_by: admin.id, verification_note: note || null, updated_at: new Date().toISOString() }).eq("user_id", params.userId).eq("verification_status", "pending");
-  if (error) return NextResponse.json({ error: "Unable to save verification decision." }, { status: 500 });
-  return NextResponse.json({ ok: true, status: decision });
-}
+import {NextRequest,NextResponse} from "next/server";import {createClient} from "@supabase/supabase-js";import {ADMIN_ACCESS_COOKIE,isAuthorizedAdmin} from "../../../../../lib/adminAuth";import {supabaseAdmin} from "../../../../../lib/supabaseAdmin";
+async function requireAdminRequest(request:NextRequest){const token=request.cookies.get(ADMIN_ACCESS_COOKIE)?.value;if(!token)return null;const s=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});const {data,error}=await s.auth.getUser(token);if(error||!data.user||!(await isAuthorizedAdmin(data.user.id)))return null;return data.user;}
+export async function POST(request:NextRequest,{params}:{params:{userId:string}}){const admin=await requireAdminRequest(request);if(!admin)return NextResponse.json({error:"Admin access required."},{status:403});let body:Record<string,any>;try{body=await request.json();}catch{return NextResponse.json({error:"Invalid review request."},{status:400});}const decision=body.decision==="verified"?"verified":body.decision==="declined"?"declined":null;const note=typeof body.note==="string"?body.note.trim().slice(0,500):"";if(!decision)return NextResponse.json({error:"Choose approve or decline."},{status:400});const {data:p,error:loadError}=await supabaseAdmin.from("community_partner_profiles").select("verification_status,verification_safeguarding_agreed").eq("user_id",params.userId).maybeSingle();if(loadError||!p)return NextResponse.json({error:"Community Partner profile not found."},{status:404});if(p.verification_status!=="pending")return NextResponse.json({error:"Only pending verification requests can be reviewed."},{status:409});
+if(decision==="verified"){const c=body.checks||{};const all=!!c.identity&&!!c.photo&&!!c.contact&&!!c.reference&&!!c.referee&&!!c.credentials;const {data:docs}=await supabaseAdmin.from("community_partner_verification_documents").select("document_type").eq("user_id",params.userId).eq("is_current",true);const kinds=new Set((docs||[]).map(d=>d.document_type));if(!p.verification_safeguarding_agreed||!kinds.has("certified_id")||!kinds.has("verification_photo")||!kinds.has("reference_letter")||!all)return NextResponse.json({error:"Approval is locked until all required evidence and verification checks are complete."},{status:400});}
+const now=new Date().toISOString();const checks=body.checks||{};const update:any={verification_status:decision,verification_reviewed_at:now,verification_reviewed_by:admin.id,verification_note:note||null,updated_at:now};if(decision==="verified")Object.assign(update,{verification_identity_evidence:!!checks.identity,verification_contact_confirmed:!!checks.contact,verification_reference_reviewed:!!checks.reference,verification_reference_confirmed:!!checks.referee,verification_credentials_reviewed:!!checks.credentials});const {error}=await supabaseAdmin.from("community_partner_profiles").update(update).eq("user_id",params.userId).eq("verification_status","pending");if(error)return NextResponse.json({error:"Unable to save verification decision."},{status:500});return NextResponse.json({ok:true,status:decision});}
