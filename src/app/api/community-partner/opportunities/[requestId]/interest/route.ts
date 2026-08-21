@@ -1,0 +1,16 @@
+import {NextRequest,NextResponse} from "next/server";
+import {getMemberFromToken,MEMBER_ACCESS_COOKIE} from "../../../../../../lib/memberAuth";
+import {supabaseAdmin} from "../../../../../../lib/supabaseAdmin";
+
+export async function POST(request:NextRequest,{params}:{params:{requestId:string}}){
+  const token=request.cookies.get(MEMBER_ACCESS_COOKIE)?.value;
+  const member=await getMemberFromToken(token);
+  if(!member||member.account.account_type!=="community_partner")return NextResponse.json({error:"Community Partner sign-in required."},{status:401});
+  const {data:profile}=await supabaseAdmin.from("community_partner_profiles").select("verification_status").eq("user_id",member.user.id).maybeSingle();
+  if(profile?.verification_status!=="verified")return NextResponse.json({error:"Verification is required before expressing interest."},{status:403});
+  const {data:supportRequest}=await supabaseAdmin.from("parent_support_requests").select("id,status").eq("id",params.requestId).maybeSingle();
+  if(!supportRequest||supportRequest.status!=="open")return NextResponse.json({error:"This support opportunity is no longer open."},{status:409});
+  const {error}=await supabaseAdmin.from("partner_support_interests").upsert({support_request_id:params.requestId,partner_user_id:member.user.id,status:"interested",updated_at:new Date().toISOString()},{onConflict:"support_request_id,partner_user_id"});
+  if(error)return NextResponse.json({error:"Unable to record your interest."},{status:500});
+  return NextResponse.json({ok:true,message:"Interest recorded. No contact details have been shared and no connection has been created."});
+}
